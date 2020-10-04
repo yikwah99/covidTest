@@ -5,12 +5,13 @@ import { NgForm } from '@angular/forms';
   templateUrl: './user-register.component.html',
   styleUrls: ['./user-register.component.css']
 })
+
 export class UserRegisterComponent implements OnInit {
   Roles: any = ['Patient','Test Centre Manager', 'Tester'];
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
+
   onRegister(form: NgForm) {
     if (form.invalid) {
       return;

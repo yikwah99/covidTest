@@ -1,4 +1,5 @@
-<div class="register-wrapper" fxLayout="row" fxLayoutAlign="center center">
+<div class=" register-wrapper" fxLayout="row" fxLayoutAlign="center center">
+
   <mat-card class="box">
     <mat-card-header>
       <mat-card-title>Register</mat-card-title>
@@ -7,34 +8,28 @@
     <form class="registerform" (submit)= "onRegister(registerForm)" #registerForm="ngForm">
       <mat-card-content>
         <mat-form-field class="input-field">
-          <input matInput placeholder="Username" ngModel required minlength="3" #username="ngModel" placeholder="Username"/>
-          <mat-error *ngIf= "username.invalid"> Please enter a valid username</mat-error>
+          <input matInput name="username" ngModel required minlength="3" #username="ngModel" placeholder="Username">
+          <mat-error *ngIf= "username.invalid"> Please enter a username</mat-error>
         </mat-form-field>
 
         <mat-form-field class="input-field">
-          <input type="email" matInput placeholder="Email" ngModel required minlength="3" #email="ngModel" />
-          <mat-error *ngIf= "email.invalid"> Please enter a valid email</mat-error>
+          <input matInput name="password" placeholder="Password" ngModel required minlength="6" #password="ngModel">
+          <mat-error *ngIf= "password.invalid"> Please enter a password</mat-error>
         </mat-form-field>
-
         <mat-form-field class="input-field">
-          <input matInput placeholder="Password" ngModel required minlength="6" #password="ngModel" />
-          <mat-error *ngIf= "password.invalid"> Please enter a valid password</mat-error>
+          <input matInput type="email" name="email" placeholder="Email" ngModel required  minlength="6" #email="ngModel">
+          <mat-error *ngIf= "email.invalid"> Please enter a email</mat-error>
         </mat-form-field>
-
         <mat-form-field class="input-field">
           <mat-label>Choose a role...</mat-label>
-          <mat-select  ngModel required ngModel #role="ngModel" >
-            <mat-option [value]="roles" *ngFor="let roles of Roles"
-              >{{ roles }}
+          <mat-select>
+            <mat-option [value]="roles" *ngFor="let roles of Roles">{{roles}}
             </mat-option>
           </mat-select>
-          <mat-error *ngIf= "role.invalid"> Please choose a role</mat-error>
         </mat-form-field>
-      </mat-card-content>
 
-      <button mat-raised-button color="primary" class="btn-block">
-        Register
-      </button>
+      </mat-card-content>
+      <button mat-raised-button color="primary" class="btn-block">Register</button>
     </form>
   </mat-card>
 </div>

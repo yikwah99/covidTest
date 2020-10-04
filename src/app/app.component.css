@@ -22,3 +22,9 @@ mat-sidenav {
   width: 250px;
 }
 
+main{
+  background-image: linear-gradient(180deg,#3196E2, #53D2DC );
+  height: 100%;
+margin: 0px;
+}
+

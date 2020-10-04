@@ -1,13 +1,5 @@
-main {
-  background-size: cover;
-  margin: 0;
-  width: 50%;
-  background: url("/assets/united-nations-covid-19-response-gpjhe4Ma8AE-unsplash.jpg") no-repeat center;
-  background-attachment: fixed;
-}
-.login-wrapper {
-  height: 100%;
-}
+
+
 
 .box {
   position: relative;
@@ -69,6 +61,8 @@ main {
   display: block;
   font-weight: 700;
   color: #fff7fa;
+  padding: 20px 0px;
+  margin-bottom: 20px;
 }
 
 .login-wrapper mat-card-header mat-card-title {
@@ -93,3 +87,11 @@ main {
 .sign a {
   color: #3196e2;
 }
+
+mat-form-field{
+  margin: 10px 0px;
+}
+
+mat-card-header{
+  background-color:   #FF826C;
+  }
