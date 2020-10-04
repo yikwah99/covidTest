@@ -14,7 +14,7 @@ body {
   height: 100%;
 }
 
-
+/*
 mat-sidenav-container, mat-sidenav-content, mat-sidenav {
   height: 100%;
 }
@@ -22,9 +22,9 @@ mat-sidenav {
   width: 250px;
 }
 
+*/
 main{
-  background-image: linear-gradient(180deg,#3196E2, #53D2DC );
-  height: 100%;
-margin: 0px;
+  margin-top: 2rem;
+  width: 80%;
+  margin:auto
 }
-

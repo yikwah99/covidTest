@@ -1,10 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AppComponent } from './app.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppRoutingModule } from './app-routing/app-routing.module';
+
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
@@ -38,14 +37,16 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatTooltipModule } from '@angular/material/tooltip'
 /*import {RouterModule, Routes} from '@angular/router';*/
 
-
+import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { FormRegisterComponent } from './form-register/form-register.component';
+
 import { UserRegisterComponent } from './user-register/user-register.component';
 import { LoginComponent } from './login/login.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SidebarComponent } from './sidebar/sidebar.component';
-
+import { TestcentreRegisterComponent } from './testcentre-register/testcentre-register.component';
+import { ManageTestkitComponent } from './manage-testkit/manage-testkit.component';
+import { RecordOfficerComponent } from './record-officer/record-officer.component';
 
 
 
@@ -53,11 +54,12 @@ import { SidebarComponent } from './sidebar/sidebar.component';
   declarations: [
     AppComponent,
     HeaderComponent,
-    FormRegisterComponent,
     UserRegisterComponent,
     LoginComponent,
     SidebarComponent,
-
+    TestcentreRegisterComponent,
+    ManageTestkitComponent,
+    RecordOfficerComponent,
 
   ],
   imports: [

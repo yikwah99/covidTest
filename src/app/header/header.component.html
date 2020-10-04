@@ -1,4 +1,52 @@
-<mat-toolbar>
+<mat-toolbar >
+  <mat-toolbar-row>
+    <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" >
+      <mat-icon>menu</mat-icon>
+    </button>
+    <a color="basic" routerLink="/home" class="title">
+      <mat-icon> coronavirus</mat-icon> CTS</a>
+    <span class="menu-spacer"></span>
+    <div fxShow="true" ><!--fxHide.lt-md-->
+      <!--  be hidden on both SM and XS screen sizes-->
+      <a mat-raised-button class="btn-nav" color="primary" routerLink="/login">
+        <mat-icon> enhanced_encryption </mat-icon>Login
+      </a>
+      <a mat-raised-button class="btn-nav" color="primary" routerLink="/register">
+        <mat-icon> perm_identity </mat-icon>Sign Up
+      </a>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-sidenav-container fxFlexFill>
+  <mat-sidenav #sidenav>
+   <!--<mat-nav-list>
+      <a (click)="sidenav.toggle()" href="" mat-list-item>Close</a>
+      <a href="#" mat-list-item>Menu Item 1</a>
+      <a href="#" mat-list-item>Menu Item 2</a>
+    </mat-nav-list>-->
+    <div>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/home" (click)="sidenav.toggle()">
+          <mat-icon>home</mat-icon> <span class="nav-caption">Home</span>
+      </a>
+      <a mat-list-item routerLink="/rCentre" (click)="sidenav.toggle()">
+          <mat-icon>assignment_ind</mat-icon> <span class="nav-caption">Register Test Centre</span>
+      </a>
+      <a mat-list-item routerLink="/rCentre" (click)="sidenav.toggle()">
+          <mat-icon>group_add</mat-icon><span class="nav-caption">Record Test Centre Officer</span>
+      </a>
+      <a mat-list-item routerLink="/manageTestKit" (click)="sidenav.toggle()">
+        <mat-icon>science</mat-icon><span class="nav-caption">Manage Test Kit Stock</span>
+    </a>
+    </mat-nav-list>
+  </div>
+  </mat-sidenav>
+  <mat-sidenav-content fxFlexFill>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+ <!--<mat-toolbar>
   <mat-toolbar-row>
     <div fxHide.gt-xs>
       <button mat-icon-button (click)="onToggleSidenav()">
@@ -6,21 +54,20 @@
       </button>
     </div>
     <a color="basic" routerLink="/home" class="title">
-      <mat-icon> coronavirus</mat-icon> CTS</a
-    >
+      <mat-icon> coronavirus</mat-icon> CTS</a>
     <span class="menu-spacer"></span>
     <div fxShow="true" fxHide.get-xs >
-      <!--hidden on both SM and XS screen sizes -->
+      <!--hidden on both SM and XS screen sizes
       <a mat-raised-button class="btn-nav" color="primary" routerLink="/login">
         <mat-icon> enhanced_encryption </mat-icon>Login
       </a>
-      <a mat-raised-button class="btn-nav" color="primary" routerLink="/user">
+      <a mat-raised-button class="btn-nav" color="primary" routerLink="/register">
         <mat-icon> perm_identity </mat-icon>Sign Up
       </a>
     </div>
   </mat-toolbar-row>
-  <!-- <div>
-    <a mat-icon-button routerLink="/home" class="title">
+<div>
+  <a mat-icon-button routerLink="/home" class="title">
       <mat-icon class="material-icons"> coronavirus</mat-icon> CTS</a>
   </div>
   <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
@@ -36,38 +83,6 @@
         </a>
       </li>
     </ul>
-  </div>-->
-</mat-toolbar>
-<!-- <mat-toolbar color="primary">
-    <mat-toolbar-row>
-      <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
-        <mat-icon>menu</mat-icon>
-      </button>
-      <span>Responsive Navigation</span>
-      <span class="menu-spacer"></span>
-      <div fxShow="true" fxHide.lt-md>
-        <!-- The following menu items will be hidden on both SM and XS screen sizes
-        <a href="#" mat-button>Menu Item 1</a>
-        <a href="#" mat-button>Menu Item 2</a>
-        <a href="#" mat-button>Menu Item 3</a>
-        <a href="#" mat-button>Menu Item 4</a>
-        <a href="#" mat-button>Menu Item 5</a>
-        <a href="#" mat-button>Menu Item 6</a>
-      </div>
-    </mat-toolbar-row>
-  </mat-toolbar>
+  </div>
+</mat-toolbar>-->
 
-  <mat-sidenav-container fxFlexFill>
-    <mat-sidenav #sidenav>
-      <mat-nav-list>
-        <a (click)="sidenav.toggle()" href="" mat-list-item>Close</a>
-        <a href="#" mat-list-item>Menu Item 1</a>
-        <a href="#" mat-list-item>Menu Item 2</a>
-        <a href="#" mat-list-item>Menu Item 3</a>
-        <a href="#" mat-list-item>Menu Item 4</a>
-        <a href="#" mat-list-item>Menu Item 5</a>
-        <a href="#"mat-list-item>Menu Item 6</a>
-      </mat-nav-list>
-    </mat-sidenav>
-    <mat-sidenav-content fxFlexFill>Main content</mat-sidenav-content>
-  </mat-sidenav-container>-->
