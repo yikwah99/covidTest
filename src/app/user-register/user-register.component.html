@@ -8,7 +8,12 @@
     <form class="registerform" (submit)= "onRegister(registerForm)" #registerForm="ngForm">
       <mat-card-content>
         <mat-form-field class="input-field">
-          <input matInput name="username" ngModel required minlength="3" #username="ngModel" placeholder="Username">
+          <input matInput name="fullname" ngModel required minlength="5" #fullname="ngModel" placeholder="Full Name">
+          <mat-error *ngIf= "fullname.invalid"> Please enter a valid fullname</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="input-field">
+          <input matInput name="username" ngModel required minlength="5" #username="ngModel" placeholder="Username">
           <mat-error *ngIf= "username.invalid"> Please enter a username</mat-error>
         </mat-form-field>
 

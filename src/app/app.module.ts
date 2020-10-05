@@ -42,7 +42,7 @@ import { HeaderComponent } from './header/header.component';
 
 import { UserRegisterComponent } from './user-register/user-register.component';
 import { LoginComponent } from './login/login.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { TestcentreRegisterComponent } from './testcentre-register/testcentre-register.component';
 import { ManageTestkitComponent } from './manage-testkit/manage-testkit.component';
@@ -104,7 +104,7 @@ import { ViewTestComponent } from './view-test/view-test.component';
     MatRadioModule,
     MatDatepickerModule,
     MatTooltipModule,
-    FontAwesomeModule,
+
 
   ],
   providers: [],
