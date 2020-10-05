@@ -50,6 +50,7 @@ import { RecordOfficerComponent } from './record-officer/record-officer.componen
 import { RecordTestComponent } from './record-test/record-test.component';
 import { UpdateTestComponent } from './update-test/update-test.component';
 import { ViewTestComponent } from './view-test/view-test.component';
+import { HomepageComponent } from './homepage/homepage.component';
 
 
 
@@ -66,6 +67,7 @@ import { ViewTestComponent } from './view-test/view-test.component';
     RecordTestComponent,
     UpdateTestComponent,
     ViewTestComponent,
+    HomepageComponent,
 
   ],
   imports: [
