@@ -8,7 +8,7 @@ import { LoginComponent } from '../login/login.component';
 import { RecordTestComponent } from '../record-test/record-test.component';
 import { UpdateTestComponent } from '../update-test/update-test.component';
 import { ViewTestComponent } from '../view-test/view-test.component';
-
+import { RecordOfficerComponent } from './record-officer/record-officer.component';
 
 export const routes: Routes = [
   { path: 'register',     component: UserRegisterComponent },
@@ -17,6 +17,7 @@ export const routes: Routes = [
   /*test manager*/
   { path: 'rCentre',  component: TestcentreRegisterComponent },
   { path: 'manageTestKit',  component: ManageTestkitComponent },
+  {path:'recordOfficer', component: RecordOfficerComponent},
   /*tester/patient*/
   { path: 'recordTest',  component: RecordTestComponent },
   { path: 'updateTest',  component: UpdateTestComponent },
