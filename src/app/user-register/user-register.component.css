@@ -3,7 +3,7 @@
 .box {
   position: relative;
   float: left;
-  padding: 30px 30px;
+  padding: 30px 10px;
 
   background: #ffc05f;
   border-radius: 10px;
@@ -69,7 +69,7 @@
 }
 
 .register-wrapper .mat-card {
-  padding: 40px 70px 50px;
+  padding: 20px 30px 30px;
 }
 
 .register-wrapper .mat-stroked-button {

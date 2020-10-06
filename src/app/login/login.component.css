@@ -4,7 +4,7 @@
 .box {
   position: relative;
   float: left;
-  padding: 60px 50px;
+  padding: 30px 10px;
   width: 100%;
   background: #ffc05f;
   border-radius: 10px;
@@ -71,7 +71,7 @@
 }
 
 .login-wrapper .mat-card {
-  padding: 40px 70px 50px;
+  padding: 20px 20px 30px;
 }
 
 .login-wrapper .mat-stroked-button {
@@ -89,7 +89,7 @@
 }
 
 mat-form-field{
-  margin: 10px 0px;
+  margin: 5px 0px;
 }
 
 mat-card-header{

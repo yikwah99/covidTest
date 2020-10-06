@@ -1,10 +1,12 @@
+<mat-toolbar>
 
-  <h1>Test Manager Profile</h1>
+</mat-toolbar>
+  <h1>Test Manager Workspace</h1>
 
-  <mat-grid-list cols="2" rowHeight="300px">
+  <mat-grid-list cols="2"    rowHeight="300px">
     <mat-grid-tile>
 
-      <div class="control-cont">
+      <div class="control-cont" >
         <mat-form-field>
           <mat-label>Fullname</mat-label>
           <input matInput disabled value="Kam Yik Hua">
@@ -22,12 +24,15 @@
         <mat-form-field >
           <mat-label>Registered Test Centre</mat-label>
           <input matInput disabled value= "{{name}}" *ngIf ="name.length >= 3">
-          <input matInput disabled value="N/A" *ngIf ="name.length <= 0">
+          <ng-container *ngIf ="name.length <= 0">
+          <input matInput disabled value="N/A" >
+          <button>Add</button>
+        </ng-container>
         </mat-form-field>
       </div>
     </mat-grid-tile>
     <mat-grid-tile>
-    <app-testcentre-register [enteredCentre]= "name" (addCentre)="this.name= $event" ></app-testcentre-register>
+    <app-testcentre-register  fxFlex.gt-sm="50%" [enteredCentre]= "name" (addCentre)="this.name= $event" ></app-testcentre-register>
 
     </mat-grid-tile>
 

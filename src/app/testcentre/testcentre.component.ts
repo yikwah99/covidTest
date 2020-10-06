@@ -11,6 +11,8 @@ export class TestcentreComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  breakpoint: number;
+
  name = [];
   /*public str:any;
 
