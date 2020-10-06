@@ -1,0 +1,18 @@
+<mat-accordion multi="true">  <!--multi=false only can expand one accordion-->
+  <mat-expansion-panel >
+    <mat-expansion-panel-header>
+    <!--  {{post.title}}-->
+
+    </mat-expansion-panel-header>
+    <p><!--{{post.content}}--></p>
+    <mat-action-row>
+      <span class="example-spacer"></span>
+      <button mat-button color="primary" routerLink="/create">EDIT</button>
+      <button mat-button color="warn"  routerLink="/list">DELETE</button>
+    </mat-action-row>
+
+  </mat-expansion-panel>
+
+</mat-accordion>
+
+<p class="info-text mat-body-1" >No post added yet</p>

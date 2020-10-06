@@ -38,7 +38,7 @@ h2{
 mat-card{
   position: relative;
   float: left;
-  padding: 20px 20px;
+  padding: 30px 30px;
   width: 100%;
   background: #ffc05f;
   border-radius: 10px;
@@ -47,13 +47,13 @@ mat-card{
   -ms-transform: scale(1);
   z-index: 5;
   max-width: 330px;
-  margin: 20px 10px;
+  margin-top: 20px;
 }
 
 mat-form-field{
   margin: 0px;
 }
 
-button{
-  float: right;
+mat-button{
+  float: left;
 }
