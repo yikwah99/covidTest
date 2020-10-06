@@ -44,13 +44,18 @@ import { UserRegisterComponent } from './user-register/user-register.component';
 import { LoginComponent } from './login/login.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 
+import { TestcentreComponent } from './testcentre/testcentre.component';
 import { TestcentreRegisterComponent } from './testcentre-register/testcentre-register.component';
 import { ManageTestkitComponent } from './manage-testkit/manage-testkit.component';
 import { RecordOfficerComponent } from './record-officer/record-officer.component';
+import{ManageTestkitListComponent} from './manage-testkit-list/manage-testkit-list.component'
+import{RecordOfficerListComponent} from './record-officer-list/record-officer-list.component'
+
 
 import { RecordTestComponent } from './record-test/record-test.component';
 import { UpdateTestComponent } from './update-test/update-test.component';
 import { ViewTestComponent } from './view-test/view-test.component';
+
 
 
 
@@ -67,7 +72,9 @@ import { ViewTestComponent } from './view-test/view-test.component';
     RecordTestComponent,
     UpdateTestComponent,
     ViewTestComponent,
-
+    TestcentreComponent,
+    ManageTestkitListComponent,
+    RecordOfficerListComponent
   ],
   imports: [
     BrowserModule,

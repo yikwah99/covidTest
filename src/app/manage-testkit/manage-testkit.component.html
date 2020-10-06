@@ -1,1 +1,26 @@
-<p>manage-testkit works!</p>
+<div class=" register-wrapper" fxLayout="row" fxLayoutAlign="center center">
+
+  <mat-card class="box">
+    <mat-card-header>
+      <mat-card-title> Test Kit Stock</mat-card-title>
+    </mat-card-header>
+
+    <form class="registerform" >
+      <mat-card-content>
+        <mat-form-field class="input-field">
+          <input matInput name="namekit" ngModel required minlength="5" #namekit="ngModel" placeholder="Test Kit Name">
+          <mat-error *ngIf= "namekit.invalid"> Please enter a valid test kit name</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="input-field">
+          <input matInput  type="number" name="stock" ngModel required minlength="5" #stock="ngModel" placeholder="Stock">
+          <mat-error *ngIf= "stock.invalid"> Please enter a number of stock</mat-error>
+        </mat-form-field>
+
+      </mat-card-content>
+      <button mat-raised-button color="primary" class="btn-block">Submit</button>
+    </form>
+  </mat-card>
+</div>
+
+<app-manage-testkit-list></app-manage-testkit-list>
