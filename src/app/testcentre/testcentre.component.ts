@@ -11,7 +11,7 @@ export class TestcentreComponent implements OnInit {
 
   ngOnInit(): void {
   }
- name:string;
+ name = [];
   /*public str:any;
 
   onAddCentre(){

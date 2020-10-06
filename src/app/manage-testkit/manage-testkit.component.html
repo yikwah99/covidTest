@@ -13,6 +13,7 @@
         </mat-form-field>
 
         <mat-form-field class="input-field">
+
           <input matInput  type="number" name="stock" ngModel required minlength="5" #stock="ngModel" placeholder="Stock">
           <mat-error *ngIf= "stock.invalid"> Please enter a number of stock</mat-error>
         </mat-form-field>

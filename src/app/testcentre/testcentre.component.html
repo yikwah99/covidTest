@@ -19,9 +19,10 @@
           <input matInput disabled value="yikhua@gmail.com">
          <!-- <input formControlName="email" matInput placeholder="Email"/>-->
         </mat-form-field>
-        <mat-form-field>
-          <mat-label>Test Centre</mat-label>
-          <input matInput disabled value= "{{name}}">
+        <mat-form-field >
+          <mat-label>Registered Test Centre</mat-label>
+          <input matInput disabled value= "{{name}}" *ngIf ="name.length >= 3">
+          <input matInput disabled value="N/A" *ngIf ="name.length <= 0">
         </mat-form-field>
       </div>
     </mat-grid-tile>
