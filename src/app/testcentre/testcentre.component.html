@@ -1,6 +1,4 @@
-<mat-toolbar>
 
-</mat-toolbar>
   <h1>Test Manager Workspace</h1>
 
   <mat-grid-list cols="2"    rowHeight="300px">
@@ -9,7 +7,7 @@
       <div class="control-cont" >
         <mat-form-field>
           <mat-label>Fullname</mat-label>
-          <input matInput disabled value="Kam Yik Hua">
+          <input matInput disabled value="Marcus Hua">
         </mat-form-field>
         <mat-form-field>
           <mat-label>Username</mat-label>
@@ -18,23 +16,24 @@
         </mat-form-field>
         <mat-form-field>
           <mat-label>Email</mat-label>
-          <input matInput disabled value="yikhua@gmail.com">
+          <input matInput disabled value="marcushua@gmail.com">
          <!-- <input formControlName="email" matInput placeholder="Email"/>-->
         </mat-form-field>
         <mat-form-field >
           <mat-label>Registered Test Centre</mat-label>
           <input matInput disabled value= "{{name}}" *ngIf ="name.length >= 3">
           <ng-container *ngIf ="name.length <= 0">
-          <input matInput disabled value="N/A" >
-          <button>Add</button>
+          <input matInput disabled  value="N/A" id="na" >
+          <button mat-raised-button color="primary"  (click)="onDisplay()">Add</button>
         </ng-container>
         </mat-form-field>
       </div>
     </mat-grid-tile>
-    <mat-grid-tile>
-    <app-testcentre-register  fxFlex.gt-sm="50%" [enteredCentre]= "name" (addCentre)="this.name= $event" ></app-testcentre-register>
-
+    <mat-grid-tile *ngIf="display">
+    <app-testcentre-register  fxFlex.gt-sm="50%"  [enteredCentre]= "name" (addCentre)="this.name= $event" ></app-testcentre-register>
     </mat-grid-tile>
 
   </mat-grid-list>
+
+
 

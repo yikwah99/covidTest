@@ -1,4 +1,8 @@
-<div class=" register-wrapper" fxLayout="row" fxLayoutAlign="center center">
+<div class=" register-wrapper"  fxLayout
+fxLayout.xs="column"
+fxLayoutAlign="center center"
+fxLayoutGap="30px"
+fxLayoutGap.xs="0">
 
   <mat-card class="box">
     <mat-card-header>
@@ -7,6 +11,7 @@
 
     <form class="registerform" (submit)= "onRegister(registerForm)" #registerForm="ngForm">
       <mat-card-content>
+        <div class="item item-1" fxFlex="50%" fxLayoutGap="30px">
         <mat-form-field class="input-field">
           <input matInput name="fullname" ngModel required minlength="5" #fullname="ngModel" placeholder="Full Name">
           <mat-error *ngIf= "fullname.invalid"> Please enter a valid fullname</mat-error>
@@ -18,9 +23,11 @@
         </mat-form-field>
 
         <mat-form-field class="input-field">
-          <input matInput name="password" placeholder="Password" ngModel required minlength="6" #password="ngModel">
+          <input matInput name="password" type="password" placeholder="Password" ngModel required minlength="6" #password="ngModel">
           <mat-error *ngIf= "password.invalid"> Please enter a password</mat-error>
         </mat-form-field>
+      </div>
+      <div class="item item-2" fxFlex="50%" >
         <mat-form-field class="input-field">
           <input matInput type="email" name="email" placeholder="Email" ngModel required  minlength="6" #email="ngModel">
           <mat-error *ngIf= "email.invalid"> Please enter a email</mat-error>
@@ -32,9 +39,20 @@
             </mat-option>
           </mat-select>
         </mat-form-field>
-
+      </div>
       </mat-card-content>
       <button mat-raised-button color="primary" class="btn-block">Register</button>
     </form>
   </mat-card>
 </div>
+
+<!--<div class="container"
+     fxLayout
+     fxLayout.xs="column"
+     fxLayoutAlign="center center"
+     fxLayoutGap="10px"
+     fxLayoutGap.xs="0">
+  <div class="item item-1" fxFlex="50%">Item 1</div>
+  <div class="item item-2" fxFlex="50%" >Item 2</div>
+
+</div>-->

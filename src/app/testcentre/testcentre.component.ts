@@ -19,6 +19,12 @@ export class TestcentreComponent implements OnInit {
   onAddCentre(){
     this.name = this.str;
   }*/
+  display = false;
+  onDisplay() {
+    //this.display = true;
 
+    //To toggle the component
+    this.display = !this.display;
+  }
 
 }

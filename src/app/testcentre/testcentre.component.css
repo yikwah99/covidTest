@@ -1,7 +1,11 @@
-/*form .normal-form{
+form .normal-form{
 
+margin: 10px;
+}
 
-}*/
+button{
+  display: inline;
+}
 
 mat-grid-list{
   border-radius: 10px;
@@ -14,11 +18,13 @@ mat-grid-list{
     padding: 5%;
   }
 
-  mat-form-field,
-  text-area{
+  mat-form-field{
       width:100%;
     }
 
+#na{
+  width:10%;
+}
   h2{
     text-align: center;
     color:white;

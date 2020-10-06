@@ -6,7 +6,9 @@ mat-icon {
 main {
   background-image: linear-gradient(180deg, #3196e2, #53d2dc);
   height: 100%;
-  margin: 0px;
+  margin-top: 2rem;
+  width: 80%;
+  margin:auto
 }
 
 .title {

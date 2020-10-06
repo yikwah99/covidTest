@@ -10,7 +10,7 @@ export class TestcentreRegisterComponent implements OnInit {
  @Output() addCentre= new EventEmitter();
 
   constructor() { }
-
+  display = false;
 
   ngOnInit(): void {
   }
@@ -19,5 +19,11 @@ export class TestcentreRegisterComponent implements OnInit {
      this.enteredCentre;
     this.addCentre.emit( this.enteredCentre);
     console.log( this.enteredCentre);
+
+    //this.display = true;
+
+    //To toggle the component
+    this.display = !this.display;
+
   }
 }
