@@ -28,3 +28,27 @@ mat-form-field{
 .item{
   padding: 0 10px;
 }
+
+.box {
+  position: relative;
+  float: left;
+  padding: 30px 10px;
+  background: #ffc05f;
+  border-radius: 10px;
+  transform: scale(1);
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  z-index: 5;
+  max-width: 330px;
+  margin-top: 20px;
+}
+
+.register-wrapper .registerform {
+  min-width: 100%;
+ max-width: 400px;
+  width: 100%;
+}
+
+.register-wrapper .input-field{
+  width: 100%;
+}
