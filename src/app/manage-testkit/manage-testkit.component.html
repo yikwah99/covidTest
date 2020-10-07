@@ -5,16 +5,16 @@
       <mat-card-title> Test Kit Stock</mat-card-title>
     </mat-card-header>
 
-    <form class="registerform" >
+    <form class="registerform" (submit)= "onAddTestkit (testKitForm)" #testKitForm="ngForm" >
       <mat-card-content>
         <mat-form-field class="input-field">
-          <input matInput name="namekit" ngModel required minlength="5" #namekit="ngModel" placeholder="Test Kit Name">
+          <input matInput name="testkitName" ngModel required minlength="3" #namekit="ngModel" placeholder="Test Kit Name">
           <mat-error *ngIf= "namekit.invalid"> Please enter a valid test kit name</mat-error>
         </mat-form-field>
 
         <mat-form-field class="input-field">
 
-          <input matInput  type="number" name="stock" ngModel required minlength="5" #stock="ngModel" placeholder="Stock">
+          <input matInput  type="number" name="stock" ngModel required minlength="1" #stock="ngModel" placeholder="Stock">
           <mat-error *ngIf= "stock.invalid"> Please enter a number of stock</mat-error>
         </mat-form-field>
 

@@ -8,7 +8,9 @@ main {
   height: 100%;
   margin-top: 2rem;
   width: 80%;
-  margin:auto
+  margin:auto;
+  margin-bottom: 80px;
+
 }
 
 .title {
