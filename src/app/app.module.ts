@@ -50,7 +50,7 @@ import { ManageTestkitComponent } from './manage-testkit/manage-testkit.componen
 import { RecordOfficerComponent } from './record-officer/record-officer.component';
 import{ManageTestkitListComponent} from './manage-testkit-list/manage-testkit-list.component'
 import{RecordOfficerListComponent} from './record-officer-list/record-officer-list.component'
-
+import { GenerateReportComponent } from './generate-report/generate-report.component';
 
 import { RecordTestComponent } from './record-test/record-test.component';
 import { UpdateTestComponent } from './update-test/update-test.component';
@@ -58,6 +58,7 @@ import { ViewTestComponent } from './view-test/view-test.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { PatientListComponent } from './patient-list/patient-list.component';
 import { PatientService } from './record-patient.service'
+
 
 
 
@@ -78,7 +79,8 @@ import { PatientService } from './record-patient.service'
     TestcentreComponent,
     ManageTestkitListComponent,
     RecordOfficerListComponent,
-    PatientListComponent
+    PatientListComponent,
+    GenerateReportComponent,
   ],
   imports: [
     BrowserModule,

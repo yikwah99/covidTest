@@ -3,8 +3,7 @@
 html,
 body {
   height: 100%;
-  overflow-x:hidden;
-  overflow-y:hidden;
+
 }
 body {
   margin: 0;
@@ -49,6 +48,7 @@ mat-form-field{
   min-width: 100%;
  max-width: 400px;
   width: 100%;
+  overflow: hidden;
 }
 
 .register-wrapper .input-field{
