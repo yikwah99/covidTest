@@ -16,10 +16,10 @@ export class RecordOfficerComponent  {
     if(form.invalid){
       return;
     }else{
-      console.log("Form Submitted!",form.value.username,form.value.password,form.value.position,form.value.fullname);
+      console.log("Form Submitted!",form.value.username,form.value.password,form.value.fullname,form.value.position);
 
     }
-    this.recordofficerservice.addOfficer(form.value.username,form.value.password,form.value.position,form.value.fullname);
+    this.recordofficerservice.addOfficer(form.value.username,form.value.password,form.value.fullname,"Tester");
     form.resetForm();
   }
 

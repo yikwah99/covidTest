@@ -1,4 +1,4 @@
-<table mat-table [dataSource]="dataSource"  *ngFor="let officer of officers" class="mat-elevation-z8">
+<table mat-table [dataSource]= "officers"  *ngFor="let officer of officers" class="mat-elevation-z8">
 
   <!--- Note that these columns can be defined in any order.
         The actual rendered columns are set as a property on the row definition" -->
@@ -40,3 +40,5 @@
 </table>
 
 
+
+<p class="info-text mat-body-1" *ngIf ="officers.length <= 0">No tester added yet</p>

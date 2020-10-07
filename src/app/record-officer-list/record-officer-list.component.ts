@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Officer} from '../officer.model';
 import{RecordOfficerService} from '../record-officer.service';
+import { MatTableDataSource } from '@angular/material/table';
+
 export interface PeriodicElement {
   username: string;
   position: string;
@@ -21,13 +23,17 @@ const ELEMENT_DATA: PeriodicElement[] = [
 export class RecordOfficerListComponent implements OnInit {
   displayedColumns: string[] = ['position', 'username', 'password', 'fullname','action'];
   officers: Officer[] = [];
-  dataSource = this.officers;
+  dataSource: MatTableDataSource<Officer>;
+  //dataSource = this.officers;
   //dataSource = ELEMENT_DATA;
-  constructor(public recordofficerservice: RecordOfficerService) { }
+  constructor(public recordofficerservice: RecordOfficerService) {
+    //this.dataSource = new MatTableDataSource(this.officers);
+  }
 
 
   ngOnInit(): void {
     this.officers = this.recordofficerservice.getOfficer();
+   // this.dataSource = this.recordofficerservice.getOfficer();
   }
 
 }

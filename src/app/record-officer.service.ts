@@ -12,7 +12,7 @@ export class RecordOfficerService {
   getOfficer(){
     return this.officers;
   }
-  addOfficer( username: string, password: string,fullname: string, position: string){
+  addOfficer( username: string, password: string, fullname: string, position: "Tester"){
     const officer:Officer = {username:username, password:password, fullname:fullname, position:position};
     this.officers.push(officer);
   }
