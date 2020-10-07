@@ -1,0 +1,85 @@
+<table mat-table [dataSource]="patients" *ngFor="let patient of patients" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+  <!-- Username Column -->
+  <ng-container matColumnDef="username">
+    <th mat-header-cell *matHeaderCellDef> Username </th>
+    <td mat-cell *matCellDef="let patient"> {{patient.username}} </td>
+  </ng-container>
+  
+  <!-- Password Column -->
+  <ng-container matColumnDef="password">
+    <th mat-header-cell *matHeaderCellDef> Password </th>
+    <td mat-cell *matCellDef="let patient"> {{patient.password}} </td>
+  </ng-container>
+  
+  <!-- Full Name Column -->
+  <ng-container matColumnDef="fullName">
+    <th mat-header-cell *matHeaderCellDef> Full Name </th>
+    <td mat-cell *matCellDef="let patient"> {{patient.fullName}} </td>
+  </ng-container>
+
+  <!-- Identity Card Number/Passport Number Column -->
+  <ng-container matColumnDef="idNo">
+    <th mat-header-cell *matHeaderCellDef> Identity Card Number/Passport Number </th>
+    <td mat-cell *matCellDef="let patient"> {{patient.idNo}} </td>
+  </ng-container>
+
+  <!-- Sex Column -->
+  <ng-container matColumnDef="sex">
+    <th mat-header-cell *matHeaderCellDef> Sex </th>
+    <td mat-cell *matCellDef="let patient"> {{patient.sex}} </td>
+  </ng-container>
+
+  <!-- Age Column -->
+  <ng-container matColumnDef="age">
+    <th mat-header-cell *matHeaderCellDef> Age </th>
+    <td mat-cell *matCellDef="let patient"> {{patient.age}} </td>
+  </ng-container>
+
+  <!-- Date of Birth Column -->
+  <ng-container matColumnDef="birthday">
+    <th mat-header-cell *matHeaderCellDef> Date of Birth </th>
+    <td mat-cell *matCellDef="let patient"> {{patient.birthday}} </td>
+  </ng-container>
+  
+  <!-- Phone Number Column -->
+  <ng-container matColumnDef="phoneNo">
+    <th mat-header-cell *matHeaderCellDef> Phone Number </th>
+    <td mat-cell *matCellDef="let patient"> {{patient.phoneNo}} </td>
+  </ng-container>
+  
+  <!-- Address Column -->
+  <ng-container matColumnDef="address">
+    <th mat-header-cell *matHeaderCellDef> Address </th>
+    <td mat-cell *matCellDef="let patient"> {{patient.address}} </td>
+  </ng-container>
+  
+  <!-- Zip Code Column -->
+  <ng-container matColumnDef="zip">
+    <th mat-header-cell *matHeaderCellDef> Zip Code </th>
+    <td mat-cell *matCellDef="let patient"> {{patient.zip}} </td>
+  </ng-container>
+  
+  <!-- City Column -->
+  <ng-container matColumnDef="city">
+    <th mat-header-cell *matHeaderCellDef> City </th>
+    <td mat-cell *matCellDef="let patient"> {{patient.city}} </td>
+  </ng-container>
+  
+  <!-- Country Column -->
+  <ng-container matColumnDef="country">
+    <th mat-header-cell *matHeaderCellDef> Country </th>
+    <td mat-cell *matCellDef="let patient"> {{patient.country}} </td>
+  </ng-container>
+  
+  <!-- State Column -->
+  <ng-container matColumnDef="state">
+    <th mat-header-cell *matHeaderCellDef> State </th>
+    <td mat-cell *matCellDef="let patient"> {{patient.state}} </td>
+  </ng-container>
+  
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

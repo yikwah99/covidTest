@@ -56,7 +56,8 @@ import { RecordTestComponent } from './record-test/record-test.component';
 import { UpdateTestComponent } from './update-test/update-test.component';
 import { ViewTestComponent } from './view-test/view-test.component';
 import { HomepageComponent } from './homepage/homepage.component';
-
+import { PatientListComponent } from './patient-list/patient-list.component';
+import { PatientService } from './record-patient.service'
 
 
 
@@ -76,7 +77,8 @@ import { HomepageComponent } from './homepage/homepage.component';
     HomepageComponent,
     TestcentreComponent,
     ManageTestkitListComponent,
-    RecordOfficerListComponent
+    RecordOfficerListComponent,
+    PatientListComponent
   ],
   imports: [
     BrowserModule,
@@ -117,7 +119,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 
 
   ],
-  providers: [],
+  providers: [PatientService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
