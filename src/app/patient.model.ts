@@ -12,7 +12,7 @@ export class Patient{
   public city: string;
   public country: string;
   public state: string;
-  
+
   constructor(username: string, password: string, fullName: string, idNo: string, sex: string, age: number, birthday: string, phoneNo: string, address: string, zip: string, city: string, country: string, state: string){
     this.username= username;
     this.password= password;

@@ -13,13 +13,14 @@ export class PatientListComponent implements OnInit {
   displayedColumns: string[] =[    'username','password','fullName','idNo','sex','age','birthday','phoneNo','address','zip','city','country','state'];
   patients: Patient[]=[];
   dataSource: MatTableDataSource<Patient>;
-  
-  
-  
+
+
+
   constructor(private patientService: PatientService) { }
 
   ngOnInit(): void {
-    this.patients = this.patientService.getPatients();
+    //this.patients = this.patientService.getPatients()
+    this.patients = this.patientService.getCollection();
   }
 
 }
