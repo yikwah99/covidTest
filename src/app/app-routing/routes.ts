@@ -10,6 +10,7 @@ import { UpdateTestComponent } from '../update-test/update-test.component';
 import { ViewTestComponent } from '../view-test/view-test.component';
 import { RecordOfficerComponent } from '../record-officer/record-officer.component';
 import { GenerateReportComponent } from '../generate-report/generate-report.component';
+import { HomepageComponent } from '../homepage/homepage.component';
 
 export const routes: Routes = [
   { path: 'register',     component: UserRegisterComponent },
@@ -25,5 +26,6 @@ export const routes: Routes = [
   { path: 'recordTest',  component: RecordTestComponent },
   { path: 'updateTest',  component: UpdateTestComponent },
   { path: 'viewTest',  component: ViewTestComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'full' }
+  { path: 'homepage',  component: HomepageComponent },
+  { path: '', redirectTo: '/homepage', pathMatch: 'full' }
 ];
