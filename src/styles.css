@@ -34,7 +34,7 @@ mat-form-field{
   position: relative;
   float: left;
   padding: 30px 10px;
-  background: #ffc05f;
+  background: white;
   border-radius: 10px;
   transform: scale(1);
   -webkit-transform: scale(1);

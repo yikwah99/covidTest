@@ -28,7 +28,7 @@ a {
 
 .btn-nav:hover,
 .btn-nav:active {
-  background-color: #ffc05f;
+  background-color: #F5F0F6;
 }
 
 mat-toolbar {
@@ -48,11 +48,15 @@ mat-sidenav-content {
 
 }
 mat-sidenav {
-  background-color: #ffc05f;
+  background-color: #3196e2;
 }
 
 @media (max-width: 959px) {
   mat-toolbar {
     border-radius: 0px;
   }
+}
+
+.nav-item{
+  color:white;
 }
