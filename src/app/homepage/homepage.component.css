@@ -26,6 +26,10 @@
   justify-content: center;
   
 }
+
+.title-desc{
+  margin:3em;
+}
 .button{
   width: 15vw;
   height: 8vh;
@@ -47,5 +51,5 @@
 
 mat-card{
   padding:30px 80px; 
-  margin: 30px
+  margin: 30px 12em;
 }
