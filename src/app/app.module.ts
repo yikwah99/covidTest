@@ -58,7 +58,8 @@ import { UpdateTestComponent } from './update-test/update-test.component';
 import { ViewTestComponent } from './view-test/view-test.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { PatientListComponent } from './patient-list/patient-list.component';
-import { PatientService } from './record-patient.service'
+import { PatientService } from './record-patient.service';
+import { UpdateTestResultComponent } from './update-test-result/update-test-result.component'
 
 
 
@@ -82,6 +83,7 @@ import { PatientService } from './record-patient.service'
     RecordOfficerListComponent,
     PatientListComponent,
     GenerateReportComponent,
+    UpdateTestResultComponent,
   ],
   imports: [
     BrowserModule,

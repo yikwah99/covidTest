@@ -24,7 +24,6 @@ export class RecordTestComponent implements OnInit {
       return;
     }
     else{
-      console.log(form.value.username, form.value.password, form.value.fullName, form.value.idNo, form.value.sex, form.value.age, form.value.birthday, form.value.phoneNo, form.value.address, form.value.zip, form.value.city, form.value.country, form.value.state);
       var patient:Patient = {username: form.value.username, password: form.value.password, fullName: form.value.fullName, idNo: form.value.idNo, sex: form.value.sex, age: form.value.age, birthday: form.value.birthday, phoneNo: form.value.phoneNo, address: form.value.address, zip: form.value.zip, city: form.value.city, country: form.value.country, state: form.value.state};
       
       this.patientService.addToCollection(patient);
