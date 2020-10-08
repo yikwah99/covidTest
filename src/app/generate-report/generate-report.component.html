@@ -42,9 +42,10 @@ fxLayoutGap.xs="0">
     </ng-container>
     <ng-container matColumnDef="viewPatient">
       <mat-header-cell *matHeaderCellDef> Patient Details</mat-header-cell>
-      <mat-cell *matCellDef="let row" mat-dialog-actions>
-
+      <mat-cell *matCellDef="let row" >
+<mat-dialog-actions>
         <button mat-icon-button  (click)="onViewReport(row)"> <mat-icon>launch</mat-icon></button>
+      </mat-dialog-actions>
       </mat-cell>
     </ng-container>
    <!-- <ng-container matColumnDef="actions">

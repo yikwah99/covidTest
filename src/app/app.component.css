@@ -28,3 +28,10 @@ main{
   width: 80%;
   margin:auto
 }
+mat-dialog-content{
+display: flex;
+position: absolute;
+z-index: 1000;
+overflow: auto;
+pointer-events: auto;
+}

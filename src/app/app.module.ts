@@ -12,6 +12,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatChipsModule } from '@angular/material/chips';
+import {MatDialogModule} from '@angular/material/dialog';
 import { MatRippleModule } from '@angular/material/core';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatExpansionModule } from '@angular/material/expansion';
@@ -98,6 +99,7 @@ import { PatientService } from './record-patient.service'
     MatExpansionModule,
     MatIconModule,
     MatInputModule,
+    MatDialogModule,
     MatListModule,
     MatMenuModule,
     MatProgressSpinnerModule,
