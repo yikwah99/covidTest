@@ -14,10 +14,15 @@ export interface TestReport {
 }
 
 const ELEMENT_DATA: TestReport[] = [
-  {testID: 'TA001', result: 'Positive',  resultDate: new Date(2020, 8, 1), status: 'Completed',tester:"Abu", patientType:'Returnee'},
-  {testID: 'TA002', result: 'Positive',  resultDate: new Date(2020, 9, 2), status: 'Completed',tester:"Marcus",patientType:'Returnee'},
-  {testID: 'TA003', result: 'Negative',  resultDate: new Date(2020, 9, 3), status: 'Completed',tester:"Jack",patientType:'Returnee'},
-  {testID: 'TA004', result: 'Positive',  resultDate: new Date(2020, 9, 4), status: 'Pending',tester:"Mia",patientType:'Returnee'},
+  {testID: 'TA001', result: 'Positive',  resultDate: new Date(2020, 8, 1), status: 'Completed',tester:"Abu", patientType:'Completed'},
+  {testID: 'TA002', result: 'Positive',  resultDate: new Date(2020, 9, 2), status: 'Completed',tester:"Marcus",patientType:'Completed'},
+  {testID: 'TA003', result: 'Negative',  resultDate: new Date(2020, 9, 3), status: 'Completed',tester:"Jack",patientType:'Completed'},
+  {testID: 'TA004', result: '-',  resultDate: null, status: 'Pending',tester:"Mia",patientType:'Pending'},
+  
+  {testID: 'TA004', result: '-',  resultDate: null, status: 'Pending',tester:"Mia",patientType:'Pending'},
+  {testID: 'TA004', result: '-',  resultDate: null, status: 'Pending',tester:"Mia",patientType:'Pending'},
+  {testID: 'TA004', result: '-',  resultDate: null, status: 'Pending',tester:"Mia",patientType:'Pending'},
+  {testID: 'TA004', result: '-',  resultDate: null, status: 'Pending',tester:"Mia",patientType:'Pending'},
 
 
 
@@ -31,7 +36,7 @@ const ELEMENT_DATA: TestReport[] = [
 
 export class GenerateReportComponent implements OnInit {
 
-  displayedColumns: string[] = ['testID', 'result', 'resultDate', 'status','tester','viewPatient'];
+  displayedColumns: string[] = ['testID', 'result', 'resultDate', 'status','tester','patientType'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
   constructor(private dialog:MatDialog) {
 
