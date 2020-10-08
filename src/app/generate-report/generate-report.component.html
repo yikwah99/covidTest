@@ -40,13 +40,13 @@ fxLayoutGap.xs="0">
       <mat-header-cell *matHeaderCellDef mat-sort-header>Tester</mat-header-cell>
       <mat-cell *matCellDef="let element">{{element.tester}}</mat-cell>
     </ng-container>
-    <ng-container matColumnDef="patientType">
+    <ng-container matColumnDef="action">
       <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
       <mat-cell *matCellDef="let element" >
       <mat-dialog-actions>
-        <button mat-icon-button  (click)="onViewReport(row)"> 
-          <span *ngIf="element.patientType === 'Completed'">View</span>
-          <span *ngIf="element.patientType === 'Pending'">Update</span>
+        <button mat-icon-button  (click)="onViewReport(element.status)"> 
+          <span *ngIf="element.status === 'Completed'">View</span>
+          <span *ngIf="element.status === 'Pending'">Update</span>
           
           <mat-icon style="padding:0;">
             launch
