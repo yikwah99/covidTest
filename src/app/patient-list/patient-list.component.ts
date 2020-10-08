@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Patient} from '../patient.model';
 import { MatTableDataSource } from '@angular/material/table';
-import {PatientService} from '../record-patient.service'
+import {PatientService} from '../record-patient.service';
 
 
 @Component({

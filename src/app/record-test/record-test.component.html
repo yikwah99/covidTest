@@ -1,3 +1,130 @@
+<div>
 
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Record New Test</mat-card-title>
+    </mat-card-header>
+
+    <form (submit)= "onAddPatienttoCollection(patientForm)" #patientForm="ngForm" >
+      <mat-card-content>
+        <div fxLayout="row">
+          <div fxFlex="50" style="margin-right:10px;">
+            <!-- Username Input -->
+            <mat-form-field appearance="fill">
+              <mat-label>Username</mat-label>
+              <input #username="ngModel" ngModel name="username" matInput >
+            </mat-form-field>
+          </div>
+          <div fxFlex="50">
+            <!-- Password Input -->
+            <mat-form-field appearance="fill">
+              <mat-label>Password</mat-label>
+              <input #password="ngModel" ngModel name="password" matInput type="password" minlength="6">
+            </mat-form-field>
+          </div>
+        </div>
+        <!-- Full Name Input -->
+        <mat-form-field appearance="fill">
+          <mat-label>Full Name</mat-label>
+          <input #fullName="ngModel" ngModel name="fullName" matInput >
+        </mat-form-field>
+        <!-- Identity Card Number Input -->
+        <mat-form-field appearance="fill">
+          <mat-label>Identity Card Number/Passport Number</mat-label>
+          <input #idNo="ngModel" ngModel name="idNo" matInput >
+        </mat-form-field>
+        <div fxlayout="row">
+          <div fxFlex="50" style="margin-right:10px;">
+            <!-- Sex Input -->
+            <mat-form-field appearance="fill">
+              <mat-label>Gender</mat-label>
+              <mat-select #sex="ngModel" ngModel name="sex" matInput>
+                <mat-option value="M">Male</mat-option>
+                <mat-option value="F">Female</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <!-- Date of Birth Input -->
+            <mat-form-field appearance="fill">
+              <mat-label>Date of Birth</mat-label>
+              <input #birthday="ngModel" ngModel name="birthday" type="date" matInput >
+            </mat-form-field>
+
+
+          </div>
+          <div fxFlex="50">   
+            <!-- Age Input -->
+            <mat-form-field appearance="fill">
+              <mat-label>Age</mat-label>
+              <input #age="ngModel" ngModel name="age" type="number" matInput >
+            </mat-form-field>
+
+            <!-- Phone Number Input -->
+            <mat-form-field appearance="fill">
+              <mat-label>Phone Number</mat-label>
+              <input #phoneNo="ngModel" ngModel name="phoneNo" type="number" matInput >
+            </mat-form-field>
+
+
+          </div>
+
+        </div>
+        <!-- Address Input -->
+        <mat-form-field appearance="fill">
+          <mat-label>Address</mat-label>
+          <input #address="ngModel" ngModel name="address" matInput >
+        </mat-form-field>
+
+        <div fxlayout="row">
+          <div fxFlex="50" style="margin-right:10px;">
+            <!-- Zip Code Input -->
+            <mat-form-field appearance="fill">
+              <mat-label>Zip Code</mat-label>
+              <input #zip="ngModel" ngModel name="zip" matInput >
+            </mat-form-field>
+
+            <!-- Country Input -->
+            <mat-form-field appearance="fill">
+              <mat-label>Country</mat-label>
+              <input #country="ngModel" ngModel name="country" matInput >
+            </mat-form-field>
+          </div>
+
+          <div fxFlex="50">
+
+
+            <!-- City Input -->
+            <mat-form-field appearance="fill">
+              <mat-label>City</mat-label>
+              <input #city="ngModel" ngModel name="city" matInput >
+            </mat-form-field>
+
+            <!-- State Input -->
+            <mat-form-field appearance="fill">
+              <mat-label>State</mat-label>
+              <mat-select #state="ngModel" ngModel name="state" matInput>
+                <mat-option value="Johor">Johor</mat-option>
+                <mat-option value="Kedah">Kedah</mat-option>
+                <mat-option value="Kelantan">Kelantan</mat-option>
+                <mat-option value="Malacca">Malacca</mat-option>
+                <mat-option value="Negeri Sembilan">Negeri Sembilan</mat-option>
+                <mat-option value="Pahang">Pahang</mat-option>
+                <mat-option value="Penang">Penang</mat-option>
+                <mat-option value="Perak">Perak</mat-option>
+                <mat-option value="Perlis">Perlis</mat-option>
+                <mat-option value="Sabah">Sabah</mat-option>
+                <mat-option value="Sarawak">Sarawak</mat-option>
+                <mat-option value="Selangor">Selangor</mat-option>
+                <mat-option value="Terengganu">Terengganu</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+      </mat-card-content>
+      <div>
+        <button mat-raised-button color="primary" class="btn-block" type="submit">Register</button>
+      </div>
+    </form>
+  </mat-card>
+</div>
 <app-patient-list></app-patient-list>
 

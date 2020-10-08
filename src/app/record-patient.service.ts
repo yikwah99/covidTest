@@ -1,4 +1,8 @@
 import {Patient} from "./patient.model";
+import { Injectable } from '@angular/core';
+@Injectable({
+  providedIn: 'root'
+})
 
 export class PatientService{
   private patients: Patient[] = [
@@ -19,9 +23,9 @@ export class PatientService{
   }
   
   addToCollection(item:Patient){
-    if (this.collection.indexOf(item) !==-1){
-      return
-    }
+    //if (this.collection.indexOf(item) !==-1){
+    //  return
+    // }
     this.collection.push(item);
   }
   
