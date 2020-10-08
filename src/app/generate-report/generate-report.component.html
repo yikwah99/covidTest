@@ -1,13 +1,23 @@
-<div class="search-div">
-  <button mat-raised-button>
+<h1>Test Report</h1>
+<div class="container">
+<div class="search-div"  fxLayout
+fxLayout.md="column"
+fxLayoutAlign="center center"
+fxLayoutGap="30px"
+fxLayoutGap.xs="0">
+  <!--<button mat-raised-button>
     <mat-icon>add</mat-icon>Create
-  </button>
- <!-- <mat-form-field class="search-form-field" floatLabel="never">
-    <input matInput [(ngModel)]="searchKey" placeholder="Search" autocomplete="off" (keyup)="applyFilter()">
+  </button>-->
+
+
+
+  <mat-form-field class="search-form-field" floatLabel="never"  appearance="fill">
+    <input type="text" matInput [(ngModel)]="searchKey" placeholder="Search" autocomplete="off" (keyup)="applyFilter()">
     <button mat-button matSuffix mat-icon-button aria-label="Clear"*ngIf="searchKey"  (click)="onSearchClear()">
       <mat-icon>close</mat-icon>
     </button>
-  </mat-form-field>-->
+  </mat-form-field>
+
 </div>
   <table class="mat-elevation-z8" mat-table [dataSource]="dataSource"  matSort>
     <ng-container matColumnDef="testID">
@@ -20,7 +30,7 @@
     </ng-container>
     <ng-container matColumnDef="resultDate">
       <mat-header-cell *matHeaderCellDef mat-sort-header>Result Date</mat-header-cell>
-      <mat-cell *matCellDef="let element">{{element.resultDate| date : "dd-MM-yyyy"}}</mat-cell>
+      <mat-cell *matCellDef="let element">{{element.resultDate | date : "dd-MM-yyyy"}}</mat-cell>
     </ng-container>
     <ng-container matColumnDef="status">
       <mat-header-cell *matHeaderCellDef mat-sort-header>Status</mat-header-cell>
@@ -29,6 +39,13 @@
     <ng-container matColumnDef="tester">
       <mat-header-cell *matHeaderCellDef mat-sort-header>Tester</mat-header-cell>
       <mat-cell *matCellDef="let element">{{element.tester}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="viewPatient">
+      <mat-header-cell *matHeaderCellDef> Patient Details</mat-header-cell>
+      <mat-cell *matCellDef="let row" mat-dialog-actions>
+
+        <button mat-icon-button  (click)="onViewReport(row)"> <mat-icon>launch</mat-icon></button>
+      </mat-cell>
     </ng-container>
    <!-- <ng-container matColumnDef="actions">
       <mat-header-cell *matHeaderCellDef></mat-header-cell>
@@ -53,3 +70,4 @@
   </table>
   <!--<mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="5" showFirstLastButtons></mat-paginator>-->
 
+</div>

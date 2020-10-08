@@ -122,6 +122,7 @@ import { PatientService } from './record-patient.service'
 
   ],
   providers: [PatientService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[ViewTestComponent]
 })
 export class AppModule { }
