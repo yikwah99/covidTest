@@ -46,7 +46,7 @@ mat-grid-list{
     float: left;
     padding: 30px 30px;
     width: 100%;
-    background: #ffc05f;
+    background: white;
     border-radius: 10px;
     transform: scale(1);
     -webkit-transform: scale(1);

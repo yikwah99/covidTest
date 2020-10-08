@@ -6,7 +6,7 @@
   float: left;
   padding: 30px 10px;
   width: 100%;
-  background: #ffc05f;
+  background: white;
   border-radius: 10px;
   transform: scale(1);
   -webkit-transform: scale(1);
@@ -60,7 +60,7 @@
   width: 100%;
   display: block;
   font-weight: 700;
-  color: #fff7fa;
+  color: black;
   padding: 20px 0px;
   margin-bottom: 20px;
 }
@@ -93,5 +93,5 @@ mat-form-field{
 }
 
 mat-card-header{
-  background-color:   #FF826C;
+  background-color:   white;
   }

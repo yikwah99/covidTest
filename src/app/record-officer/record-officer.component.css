@@ -6,7 +6,7 @@
   float: left;
   padding: 10px 10px;
 
-  background: #ffc05f;
+  background: white;
   border-radius: 10px;
   transform: scale(1);
   -webkit-transform: scale(1);
@@ -59,7 +59,7 @@
   text-align: center;
   display: block;
   font-weight: 700;
-  color: #fff7fa;
+  color: black;
   padding: 10px 0px;
   margin-bottom: 20px;
 }
