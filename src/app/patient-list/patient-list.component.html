@@ -1,5 +1,4 @@
-<table mat-table [dataSource]="patients" *ngFor="let p of patients"  class="mat-elevation-z8">
-
+<table mat-table [dataSource]="patients"  class="mat-elevation-z8">
   <!--- Note that these columns can be defined in any order.
         The actual rendered columns are set as a property on the row definition" -->
   <!-- Username Column -->
@@ -80,27 +79,17 @@
     <td mat-cell *matCellDef="let patient"> {{patient.state}} </td>
   </ng-container>
 
+   <ng-container matColumnDef="action">
+    <th mat-header-cell *matHeaderCellDef> Actions</th>
+    <td mat-cell *matCellDef="let row">
+      <button mat-icon-button (click)="onViewPatient(row)"> <mat-icon>edit</mat-icon></button>
+    </td>
+  </ng-container>
+  
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  
 </table>
 
-<!--testing
-<mat-accordion multi="true"  *ngIf ="patients.length > 0">
-  <mat-expansion-panel *ngFor="let p of patients">
-    <mat-expansion-panel-header>
-    {{p.fullName}}
-
-    </mat-expansion-panel-header>
-    <p>{{p.country}}</p>
-    <mat-action-row>
-      <span class="example-spacer"></span>
-      <button mat-button color="primary" routerLink="/create">EDIT</button>
-      <button mat-button color="warn"  routerLink="/list">DELETE</button>
-    </mat-action-row>
-
-  </mat-expansion-panel>
-
-</mat-accordion>
--->
 
 <p class="info-text mat-body-1" *ngIf ="patients.length <= 0" >No testkit added yet</p>

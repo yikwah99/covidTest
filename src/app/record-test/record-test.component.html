@@ -2,7 +2,7 @@
 
   <mat-card>
     <mat-card-header>
-      <mat-card-title>Record New Test</mat-card-title>
+      <mat-card-title style="margin:10 30px">Record New Test</mat-card-title>
     </mat-card-header>
 
     <form (submit)= "onAddPatienttoCollection(patientForm)" #patientForm="ngForm" >
@@ -120,7 +120,7 @@
           </div>
         </div>
       </mat-card-content>
-      <div>
+      <div style="display:flex; justify-content: center">
         <button mat-raised-button color="primary" class="btn-block" type="submit">Register</button>
       </div>
     </form>

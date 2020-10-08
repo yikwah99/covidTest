@@ -12,24 +12,23 @@ export class PatientService{
     {'username': "ben1999",'password': "hellohello123",'fullName': "Benjamin Choo",'idNo': "9901011111",'sex': "M",'age': 21,'birthday': "1/1/1999",'phoneNo': "0125267732",'address': "01 Jalan Ipoh",'zip': "47400",'city': "Petaling Jaya",'country': "Malaysia",'state': "Selangor"}
     ];
   
-  private collection: Patient[] = [];
   
   getPatients(){
     return this.patients;
   }
   
   getCollection(){
-    return this.collection;
+    return this.patients;
   }
   
   addToCollection(item:Patient){
     //if (this.collection.indexOf(item) !==-1){
     //  return
     // }
-    this.collection.push(item);
+    this.patients.push(item);
   }
   
   removeFromCollection(item:Patient){
-    this.collection.splice(this.collection.indexOf(item), 1);
+    this.patients.splice(this.patients.indexOf(item), 1);
   }
 }
