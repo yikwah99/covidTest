@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter, Input, Output} from '@angular/core';
-
+import { NgForm } from '@angular/forms';
 @Component({
   selector: 'app-testcentre-register',
   templateUrl: './testcentre-register.component.html',
@@ -25,5 +25,21 @@ export class TestcentreRegisterComponent implements OnInit {
     //To toggle the component
     this.display = !this.display;
 
+  }
+  onRegisterTestCentre (form: NgForm){
+    if (form.invalid) {
+      return;
+    } else {
+      console.log('Form Submitted!');
+    }
+
+    form.resetForm();
+  }
+
+  onDisplay() {
+    //this.display = true;
+
+    //To toggle the component
+    this.display = !this.display;
   }
 }

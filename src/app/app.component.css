@@ -1,19 +1,26 @@
 
-html,
-body {
-  height: 100%;
+html {
+  margin: 0 auto;
+  padding: 0;
+  overflow-x: hidden;
 }
-
 body {
-  margin: 0;
+  margin: 0 auto;
+  overflow-x: hidden;
+  width: 950px;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  min-height: 100vh;
-  background: #e2e2e2;
+
+  position:relative;
 }
+/*
 main {
   padding: 10px;
 }
 
+html,
+body {
+  height: 100%;
+}*/
 
 /*
 mat-sidenav-container, mat-sidenav-content, mat-sidenav {
@@ -24,11 +31,12 @@ mat-sidenav {
 }
 
 */
+/*
 main{
   margin-top: 2rem;
   width: 80%;
   margin:auto
-}
+}*/
 mat-dialog-content{
 display: flex;
 position: absolute;

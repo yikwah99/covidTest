@@ -87,6 +87,7 @@ import { UpdateTestResultComponent } from './update-test-result/update-test-resu
   ],
   imports: [
     BrowserModule,
+    MatToolbarModule,
     FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
@@ -113,7 +114,7 @@ import { UpdateTestResultComponent } from './update-test-result/update-test-resu
     MatSortModule,
     MatTableModule,
     MatTabsModule,
-    MatToolbarModule,
+
     MatFormFieldModule,
     MatButtonToggleModule,
     MatTreeModule,

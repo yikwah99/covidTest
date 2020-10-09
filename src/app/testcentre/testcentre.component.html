@@ -1,5 +1,6 @@
 
-  <h1 style="color:white">Test Manager Workspace</h1>
+
+<h1 style="color:white">Test Manager Workspace</h1>
 
   <mat-grid-list cols="2"    rowHeight="300px">
     <mat-grid-tile>
@@ -35,5 +36,58 @@
 
   </mat-grid-list>
 
+<!--
+  <div class=" register-wrapper"
+  fxLayout="row wrap"
+  fxLayout.sm="column"
+  fxLayout="center center ""
+fxLayoutGap="30px"
+fxFlex.lg="33.333%" fxFlex.md="66.667%"  fxFlex.lt-sm="100%" style="margin: 20px;"
+>
 
+  <mat-card class="box">
+    <mat-card-header>
+      <mat-card-title>Register</mat-card-title>
+    </mat-card-header>
 
+    <form class="registerform" (submit)= "onRegisterTestCentre(registerForm)" #registerForm="ngForm">
+      <mat-card-content>
+          <mat-form-field>
+            <mat-label>Fullname</mat-label>
+            <input matInput readonly value="Marcus Hua">
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Username</mat-label>
+            <input matInput readonly value="TestManager-KL">
+
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput readonly value="marcushua@gmail.com">
+
+          </mat-form-field>
+
+          <mat-form-field >
+            <mat-label>Registered Test Centre</mat-label>
+            <input matInput disabled value= "{{name}}" *ngIf ="name.length >= 3">
+            <ng-container *ngIf ="name.length <= 0">
+            <input matInput disabled  value="N/A" id="na" >
+
+            <button mat-raised-button color="primary"  (click)="onDisplay()">Add</button>
+
+          </ng-container>
+          </mat-form-field>
+      </mat-card-content>
+    <div *ngIf="display">
+      <app-testcentre-register  fxLayout.xs="column"
+      fxLayout="center "
+      fxLayoutGap="30px"
+      fxFlex.lg="33.333%" fxFlex.md="66.667%"  fxFlex.lt-sm="100%" style="margin: 20px;" [enteredCentre]= "name" (addCentre)="this.name= $event" ></app-testcentre-register>
+     </div>
+    </form>
+  </mat-card>
+</div>
+
+</div>-->

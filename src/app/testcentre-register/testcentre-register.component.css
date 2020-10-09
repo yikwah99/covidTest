@@ -33,14 +33,16 @@ h2{
 
 }
 
-
+.example-spacer{
+  flex: 1 1 auto;
+}
 
 mat-card{
   position: relative;
   float: left;
   padding: 30px 30px;
   width: 100%;
-  background: white;
+  background: #53D2DC;
   border-radius: 10px;
   transform: scale(1);
   -webkit-transform: scale(1);
@@ -54,6 +56,4 @@ mat-form-field{
   margin: 0px;
 }
 
-mat-button{
-  float: left;
-}
+

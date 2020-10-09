@@ -38,7 +38,13 @@ mat-grid-list{
     min-height: 300px;
 
   }
+  .register-wrapper{
+    margin-bottom: 20px;
+  }
 
+  h1{
+    margin-bottom: 30px;
+  }
 
 
   mat-card{
