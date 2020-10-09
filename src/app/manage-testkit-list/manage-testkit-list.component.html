@@ -4,7 +4,9 @@
     {{testkit.testkitName}}
 
     </mat-expansion-panel-header>
-    <p>Number of stock: {{testkit.stock}}</p>
+   <!-- <mat-label>Number of stocks: {{testkit.stock}}</mat-label>-->
+    <input matInput disabled value="Number of stocks: {{testkit.stock}}" >
+   <!-- <p>Number of stock: {{testkit.stock}}</p>-->
     <mat-action-row>
       <span class="example-spacer"></span>
       <button mat-button color="primary" routerLink="/create">EDIT</button>
