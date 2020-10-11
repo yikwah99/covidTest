@@ -8,21 +8,16 @@ import { NgForm } from '@angular/forms';
 export class TestcentreRegisterComponent implements OnInit {
   @Input() enteredCentre;
  @Output() addCentre= new EventEmitter();
-
   constructor() { }
   display = false;
 
   ngOnInit(): void {
   }
-
   onAddCentre(){
      this.enteredCentre;
     this.addCentre.emit( this.enteredCentre);
     console.log( this.enteredCentre);
 
-    //this.display = true;
-
-    //To toggle the component
     this.display = !this.display;
 
   }
@@ -32,14 +27,9 @@ export class TestcentreRegisterComponent implements OnInit {
     } else {
       console.log('Form Submitted!');
     }
-
     form.resetForm();
   }
-
   onDisplay() {
-    //this.display = true;
-
-    //To toggle the component
     this.display = !this.display;
   }
 }

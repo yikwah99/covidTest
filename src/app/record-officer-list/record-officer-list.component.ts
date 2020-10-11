@@ -3,18 +3,7 @@ import {Officer} from '../officer.model';
 import{RecordOfficerService} from '../record-officer.service';
 import { MatTableDataSource } from '@angular/material/table';
 
-export interface PeriodicElement {
-  username: string;
-  position: string;
-  password: string;
-  fullname: string;
-}
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: "Tester", username: 'tester001', password: 'abc122', fullname: 'Marcus John'},
-  {position: "Tester", username: 'tester002', password: 'anc111', fullname: 'Curtis Foo'},
-
-];
 @Component({
   selector: 'app-record-officer-list',
   templateUrl: './record-officer-list.component.html',
