@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Officer} from '../officer.model';
 import{RecordOfficerService} from '../record-officer.service';
 import { MatTableDataSource } from '@angular/material/table';
-
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-record-officer-list',
@@ -21,8 +21,9 @@ export class RecordOfficerListComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.officers = this.recordofficerservice.getOfficer();
-   // this.dataSource = this.recordofficerservice.getOfficer();
+   // this.officers = this.recordofficerservice.getOfficer();
+  this.recordofficerservice.getOfficer()
+
   }
 
 }

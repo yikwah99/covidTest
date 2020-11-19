@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import{ManagetestkitService} from '../managetestkit.service';
 import{Testkit} from '../testkit.model'
@@ -7,12 +7,13 @@ import{Testkit} from '../testkit.model'
   templateUrl: './manage-testkit-list.component.html',
   styleUrls: ['./manage-testkit-list.component.css']
 })
-export class ManageTestkitListComponent implements OnInit {
+export class ManageTestkitListComponent implements OnInit, OnDestroy{
 testkits: Testkit[] = [];
 
 private testkitSub:Subscription;
 
 constructor(public managetestkitservice: ManagetestkitService) { }
+
 
   ngOnInit(): void {
     this.managetestkitservice.getTestKit();
@@ -26,7 +27,7 @@ constructor(public managetestkitservice: ManagetestkitService) { }
     //this.managetestkitservice.deleteTestKit(testkitId);
   }
 
-  ngDestroy(){
+  ngOnDestroy(){
     this.testkitSub.unsubscribe();
   }
 

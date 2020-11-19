@@ -1,16 +1,16 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-
 const mongoose = require("mongoose"); //import mongoose
 const app = express()
 const bcrypt =require ("bcrypt");
-const User = require ("./models/user");
 const jwt = require('jsonwebtoken');
 const checkAuth =require("./middleware/check-auth");
 
+const User = require ("./models/user");
+const Testkit =require('./models/testkit');
+
+
 mongoose.connect("mongodb+srv://max:OklBMmpdxA436z7K@cluster0.awk8b.mongodb.net/covidTest?retryWrites=true&w=majority")
-
-
 .then(()=>{
   console.log('Connected to database');
 })
@@ -28,152 +28,51 @@ res.setHeader("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OP
 next();
 });
 
+app.post("/api/testkits",(req,res,next)=>{
 
-app.post('/api/user/signup', (req, res, next)=>{
-  bcrypt.hash(req.body.password,10)
-  .then(hash =>{
-    const user = new User({
-      email: req.body.email,
-      password: hash
-    });
-    user.save() //save data to database
-    .then(result =>{
-      res.status(201).json({
-        message: 'User created', //response after saving
-        result:result
-      });
-    })
-    .catch(err =>{
-      res.status(500).json({
-        error:err
-      });
-    });
-  });
+const testkit = new Testkit({
+  testkitName: req.body.testkitName,
+  stock:req.body.stock
+});
+testkit.save().then(createdTestkit =>{
+  console.log(testkit)
+  res.status(200).json({
+    message:'Testkit added successfully',
+    postId: createdTestkit._id
+  })
+})
+console.log(testkit);
+res.status(201).json({
+  message:"Added"
+})
 });
 
-
-// app.post("/api/posts", checkAuth,(req,res, next)=>
-// {
-//   //const post = req.body;
-
-//   const post = new Post({
-//     title: req.body.title,
-//     content: req.body.content
-//   });
-//   post.save().then(createdPost => {
-//     console.log(post)
-//     res.status(200).json({
-//       message:'Post added successfully',
-//       postId: createdPost._id
-//     });
-//   });
-
-//  /* console.log(post);
-//   res.status(201).json({
-//     message:'Post added successfully'
-//   });*/
-// });
-
-// /*
-// app.use((req, res, next)=>{
-//   console.log ('First middleware')
-//   next()
-// }
-// )
-
-// app.use((req, res, next)=> {
-//   console.log ('Second middlewaree')
-//   next()
-// })
-
-// app.use((req, res, next)=> {
-//   res.send ('Hello from express!')
-// })
-
-// module.exports = app;
-// */
-// app.put("/api/posts/:id", checkAuth, (req,res, next)=>{
-//   const post = new Post({
-//     _id: req.body.id,
-//     title:req.body.title,
-//     content:req.body.content
-//   });
-//   Post.updateOne({_id: req.params.id},post).then(result => {
-//     console.log(result);
-//     res.status(200).json({message: "Update successful!"});
-//   });
-// });
-
-// app.get('/api/posts', (req, res, next)=>{
-//   //add dummy posts content.Later should get from database
-//   //const posts =[
-
-//     //To retrieve data from database
-//     Post.find().then(documents => {
-//       res.status(200).json({
-//         message:'Post fetched sucessfully',
-//         posts: documents
-//       });
-//     })
-//     /*{
-//       id:'T001',
-//       title: 'First server side post',
-//       content: 'This is coming from the server'
-//     },
-//     {
-//       id:'T002',
-//       title: 'Second server side post',
-//       content: 'This is coming from the server'
-//     }]
-
-
-//   //chaining the status method to json method
-//   res.status(200).json({
-//     message: 'Post fetched successfully',
-//     //post property that get the dummy data aboove
-//     posts: posts
-//   });*/
-// });
-
-// app.delete('/api/posts/:id', checkAuth,(req,res,next) => {
-//   Post.deleteOne({ _id: req.params.id}).then(result => {
-//     console.log(result);
-//     res.status(200).json({message:"Post deleted"});
-//   })
-// });
-
-app.post('/api/user/login',(req,res,next)=>{
-  let fetchedUser;
-  User.findOne({email:req.body.email})
-  .then(user => {
-    if(!user){
-      return res.status(401).json({
-        message:'Auth failed'
-      });
-    }
-    fetchedUser =user
-    return bcrypt.compare(req.body.password, user.password)
-  })
-  .then(result=> {
-    if(!result){
-      return res.status(401).json({
-        message:'Auth failed'
-      });
-    }const token = jwt.sign(
-      {email:fetchedUser.email, userId: fetchedUser._id},
-      "secret this should be longer",
-      {expiresIn:'1h'}
-    );
-      res.status(200).json({
-        token: token
-      })
-
-  })
-  .catch(err => {
-    return res.status(401).json({
-      message:'Auth failed'
+app.get('/api/testkits',(req, res, next)=>{
+  Testkit.find().then(documents =>{
+    res.status(200).json({
+      message:'Fetched',
+      testkits: documents
     });
   })
-  })
+});
+
+/*
+
+app.use('/api/testkits',(req, res,next)=>{
+  const testkits=[
+{
+  id:"jshsdsd",
+  testkitName:"TTTT",
+  stock:1
+}
+  ]
+res.status(200).json({
+  message:"Fetched",
+  testkits:testkits
+})
+
+});
+*/
+
 //export for other module can import
 module.exports = app;
