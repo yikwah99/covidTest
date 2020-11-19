@@ -56,6 +56,25 @@ app.get('/api/testkits',(req, res, next)=>{
   })
 });
 
+app.delete('/api/testkits/:id', (req,res,next)=>{
+  Testkit.deleteOne({_id: req.params.id}).then(result =>{
+    console.log(result);
+    res.status(200).json({message:"Deleted"});
+  })
+})
+
+
+app.put('/api/testkits/:id', (req,res,next)=>{
+  const testkit = new Testkit({
+    _id:req.body.id,
+    testkitName: req.body.testkitName,
+    stock: req.body.content
+  })
+  Testkit.updateOne({_id:req.params.id}, testkit).then(result =>{
+    console.log(result);
+    res.status(200).json({message:"Updated"})
+  })
+})
 /*
 
 app.use('/api/testkits',(req, res,next)=>{

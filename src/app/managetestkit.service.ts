@@ -4,6 +4,7 @@ import { Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import {map} from 'rxjs/operators';
 import {Router} from '@angular/router';
+import { ThrowStmt } from '@angular/compiler';
 
 @Injectable({
   providedIn: 'root'
@@ -13,10 +14,24 @@ export class ManagetestkitService {
   private testkitUpdated = new Subject <Testkit[]>();
   constructor(private http: HttpClient, private rounter: Router){}
 
+  getTest(id: string){
+    return{...this.testkits.find (t => t.id === id)};
+  }
+
+  updateTestkit(id: string, testkitName: string, stock: number){
+    const testkit: Testkit ={
+      id: id,
+      testkitName: testkitName,
+      stock:stock
+    }
+    this.http.put('http://localhost:3000/api/testkits/' + id, testkit)
+    .subscribe(response => console.log(response));
+  }
+
   getTestKit(){
    // return this.testkits;
    this.http.get<{message: string, testkits: any}>('http://localhost:3000/api/testkits')
-   /*.pipe(map((testkitData)=>{
+   .pipe(map((testkitData)=>{
      return testkitData.testkits.map(testkit => {
        return {
          testkitName: testkit.testkitName,
@@ -24,12 +39,12 @@ export class ManagetestkitService {
          id: testkit._id
        };
      });
-   }))*/
-   .subscribe(testkitData => {
-     this.testkits= testkitData.testkits;
-     this.testkitUpdated.next([...this.testkits]);
-     //this.testkits = transformedPosts;
+   }))
+   .subscribe(transformedTestkits => {
+     //this.testkits= testkitData.testkits;
      //this.testkitUpdated.next([...this.testkits]);
+     this.testkits = transformedTestkits;
+     this.testkitUpdated.next([...this.testkits]);
    })
   }
 
@@ -47,17 +62,18 @@ export class ManagetestkitService {
      .subscribe((responseData)=>{
      const id = responseData.testkitId;
       testkit.id = id;
-      console.log(responseData.message);
+      //console.log(responseData.message);
       this.testkits.push(testkit);
       this.testkitUpdated.next([...this.testkits]);
       //this.rounter.navigate(['/']);
      });
    }
 
-   deleteTestkit(testkitId:string){
-     this.http.delete('http://localhost:3000/api/testkits/'+testkitId)
+   deleteTestkit(testkitId: string){
+     this.http.delete('http://localhost:3000/api/testkits/'+ testkitId)
      .subscribe(()=>{
-     const updatedTestkits = this.testkits.filter(testkit => testkit.id !==testkitId)
+      console.log('Deleted');
+     const updatedTestkits = this.testkits.filter(testkit => testkit.id !== testkitId)
      this.testkits = updatedTestkits,
      this.testkitUpdated.next([...this.testkits]);
      });

@@ -24,7 +24,7 @@ constructor(public managetestkitservice: ManagetestkitService) { }
    // this.testkits = this.managetestkitservice.getTestKit();
   }
   onDelete(testkitId: string){
-    //this.managetestkitservice.deleteTestKit(testkitId);
+    this.managetestkitservice.deleteTestkit(testkitId);
   }
 
   ngOnDestroy(){

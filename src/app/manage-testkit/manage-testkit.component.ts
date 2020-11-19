@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import{ManagetestkitService} from '../managetestkit.service';
+import {Testkit} from '../testkit.model';
+import {ActivatedRoute, ParamMap} from '@angular/router';
 
 @Component({
   selector: 'app-manage-testkit',
@@ -9,10 +11,40 @@ import{ManagetestkitService} from '../managetestkit.service';
 })
 export class ManageTestkitComponent implements OnInit {
 
-  constructor(public managetestkitservice: ManagetestkitService) { }
+  testkit: Testkit;
+  private mode ="create";
+  private testkitId: string;
 
-  ngOnInit(): void {
+  constructor(public managetestkitservice: ManagetestkitService, public route: ActivatedRoute) { }
+
+  ngOnInit(){
+    this.route.paramMap.subscribe((paramMap:ParamMap)=>{
+      if(paramMap.has('testkitId')){
+      this.mode ="edit";
+      this.testkitId= paramMap.get('testkitId');
+      this.testkit = this.managetestkitservice.getTest(this.testkitId);
+
+      }else{
+        this.mode ='create';
+        this.testkitId = null;
+      }
+    });
   }
+
+  onSavePost(form: NgForm){
+    if(form.invalid){
+      return;
+
+    }
+
+    if(this.mode === 'create'){
+      this.managetestkitservice.addTestkit(form.value.testkitName, form.value.content);
+    }else{
+      this.managetestkitservice.updateTestkit(this.testkitId, form.value.title, form.value.content);
+    }
+    form.resetForm();
+  }
+
   onAddTestkit(form: NgForm){
     if(form.invalid){
       return;
