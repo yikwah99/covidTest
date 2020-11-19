@@ -3,8 +3,14 @@ const bodyParser = require('body-parser')
 
 const mongoose = require("mongoose"); //import mongoose
 const app = express()
+const bcrypt =require ("bcrypt");
+const User = require ("./models/user");
+const jwt = require('jsonwebtoken');
+const checkAuth =require("./middleware/check-auth");
 
 mongoose.connect("mongodb+srv://max:OklBMmpdxA436z7K@cluster0.awk8b.mongodb.net/covidTest?retryWrites=true&w=majority")
+
+
 .then(()=>{
   console.log('Connected to database');
 })
