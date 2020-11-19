@@ -35,14 +35,17 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatTooltipModule } from '@angular/material/tooltip'
+import { MatTooltipModule } from '@angular/material/tooltip';
+
+import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+import {AuthInterceptor} from './auth/auth-interceptor';
 /*import {RouterModule, Routes} from '@angular/router';*/
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 
 import { UserRegisterComponent } from './user-register/user-register.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './auth/login/login.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 
 import { TestcentreComponent } from './testcentre/testcentre.component';
@@ -124,9 +127,10 @@ import { UpdateTestResultComponent } from './update-test-result/update-test-resu
     MatDatepickerModule,
     MatTooltipModule,
 
+    HttpClientModule,
 
   ],
-  providers: [PatientService],
+  providers: [PatientService,{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi:true}],
   bootstrap: [AppComponent],
   entryComponents:[ViewTestComponent]
 })
