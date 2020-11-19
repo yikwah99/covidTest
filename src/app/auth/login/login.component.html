@@ -11,7 +11,7 @@
       <mat-card-content>
         <mat-form-field class="input-field">
           <input matInput type="username" name="username" #emailInput="ngModel" ngModel required placeholder="Email">
-          <mat-error *ngIf="emailInput.invalid"> Please enter valid email</mat-error>
+          <mat-error *ngIf="emailInput.invalid"> Please enter valid username</mat-error>
         </mat-form-field>
         <mat-form-field class="input-field">
           <input matInput type="password" name="password" placeholder="Password" minlength="6" ngModel #passwordInput="ngModel"
