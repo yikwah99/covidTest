@@ -44,7 +44,7 @@ import {AuthInterceptor} from './auth/auth-interceptor';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 
-import { UserRegisterComponent } from './user-register/user-register.component';
+import { UserRegisterComponent } from './auth/user-register/user-register.component';
 import { LoginComponent } from './auth/login/login.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 

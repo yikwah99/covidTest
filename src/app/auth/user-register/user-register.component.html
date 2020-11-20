@@ -33,8 +33,7 @@ fxLayoutGap.xs="0">
           <mat-error *ngIf= "email.invalid"> Please enter a email</mat-error>
         </mat-form-field>
         <mat-form-field class="input-field">
-          <mat-label>Role</mat-label>
-          <input matInput type="role" name="role" placeholder="Role" ngModel required readonly #email="ngModel">
+         <input matInput type="text" readonly name="role" value="Manager" >
         </mat-form-field>
       </div>
       </mat-card-content>

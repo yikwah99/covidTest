@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import {AuthService} from '../auth.services';
 @Component({
   selector: 'app-user-register',
   templateUrl: './user-register.component.html',
@@ -8,18 +9,16 @@ import { NgForm } from '@angular/forms';
 
 export class UserRegisterComponent implements OnInit {
   Roles: any = ['Patient','Test Centre Manager', 'Tester'];
-  constructor() { }
+  constructor(public authService: AuthService) { }
 
   ngOnInit(): void {}
 
   onRegister(form: NgForm) {
-    if (form.invalid) {
+    if (form.invalid){
       return;
-    } else {
-      console.log('Form Submitted!');
     }
-
-    form.resetForm();
+    this.authService.createdUser(form.value.username,form.value.password);
   }
+
 
 }

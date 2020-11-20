@@ -79,6 +79,32 @@ app.put('/api/testkits/:id', (req,res,next)=>{
 })
 //end of testkit//
 
+
+//signup
+
+app.post('/api/user/signup', (req, res, next)=>{
+  bcrypt.hash(req.body.password,10)
+  .then(hash =>{
+    const user = new User({
+      username: req.body.username,
+      password: hash
+
+    });
+    user.save() //save data to database
+    .then(result =>{
+      res.status(201).json({
+        message: 'User created', //response after saving
+        result:result
+      });
+    })
+    .catch(err =>{
+      res.status(500).json({
+        error:err
+      });
+    });
+  });
+});
+
 //login//
 app.post('/api/user/login',(req,res,next)=>{
   let fetchedUser;
