@@ -1,7 +1,10 @@
 import { Component, Input,OnInit} from '@angular/core';
 import { NgForm } from '@angular/forms';
-import {MatDialog, MatDialogConfig, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+//import {MatDialog, MatDialogConfig, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { TestcentreRegisterComponent } from '../testcentre-register/testcentre-register.component';
+import {Testcentre} from '../testcentre.model';
+import {TestcentreService} from '../testcentre.service';
+
 @Component({
   selector: 'app-testcentre',
   templateUrl: './testcentre.component.html',
@@ -9,13 +12,14 @@ import { TestcentreRegisterComponent } from '../testcentre-register/testcentre-r
 })
 export class TestcentreComponent implements OnInit {
 
-  constructor(private dialog:MatDialog) { }
+  name: Testcentre[] = [];
 
-  ngOnInit(): void {
+  constructor(public testcentreService: TestcentreService) { }
+
+  ngOnInit() {
+    this.name = this.testcentreService.getTestCentres();
   }
-  breakpoint: number;
-
- name = [];
+  //breakpoint: number;
   /*public str:any;
 
   onAddCentre(){
@@ -28,27 +32,6 @@ export class TestcentreComponent implements OnInit {
     //To toggle the component
     this.display = !this.display;
   }
-  onRegisterTestCentre (form: NgForm){
-    if (form.invalid) {
-      return;
-    } else {
-      console.log('Form Submitted!');
-    }
 
-    form.resetForm();
-  }
-  onRegisterForm(){
-    const dialogConfig = new MatDialogConfig();
-
-      this.dialog.open(TestcentreRegisterComponent,dialogConfig);
-
-
-
-    dialogConfig.disableClose = true;
-    dialogConfig.autoFocus = true;
-    dialogConfig.width = "60%";
-    dialogConfig.maxHeight= '300vh';
-
-  }
 
 }

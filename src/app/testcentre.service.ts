@@ -1,4 +1,4 @@
-import{Testcentre} from './testcente.model';
+import{Testcentre} from './testcentre.model';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
@@ -12,12 +12,12 @@ export class TestcentreService {
 
   private testcentres: Testcentre[] = [];
 
-  getTestCentre(){
+  getTestCentres(){
     return this.testcentres;
   }
 
   addTestCentre(centreName: string){
-    const testcentre: Testcentre ={ centreName: centreName};
+    const testcentre: Testcentre ={centreName: centreName};
     this.testcentres.push(testcentre);
   }
   constructor() { }

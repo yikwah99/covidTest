@@ -5,7 +5,7 @@
 
   <mat-card class="box">
 
-    <form class="form" class="registerform"  #loginForm="ngForm">
+    <form class="form">
       <mat-card-content>
         <mat-form-field class="input-field">
           <mat-card-subtitle>Fullname</mat-card-subtitle>
@@ -17,16 +17,23 @@
         </mat-form-field>
         <mat-form-field class="input-field">
           <mat-card-subtitle>Email</mat-card-subtitle>
-          <input matInput readonly name="email" value="email">
+          <input matInput readonly type="email" name="email" value="email">
         </mat-form-field>
         <mat-form-field class="input-field">
           <mat-card-subtitle>Password</mat-card-subtitle>
-          <input matInput readonly type="text" name="password" value="password">
+          <input matInput readonly type="password" name="password" value="password">
         </mat-form-field>
       </mat-card-content>
       <mat-card-subtitle>Test Centre </mat-card-subtitle>
-      <button mat-raised-button color="primary"  routerLink="/rCentre">Add</button>
-
+      <!-- <button mat-raised-button color="primary"  routerLink="/rCentre">Add</button> -->
+      <ng-container *ngIf ="name.length <= 0">
+        <input matInput disabled  value="N/A" id="na" >
+        <button mat-raised-button color="primary" type="button" routerLink="/rCentre" >Add</button>
+      </ng-container>
+      <div    *ngFor="let name of name" >
+      <input matInput disabled value= "{{name.centreName}}" >
+      <a mat-raised-button color="primary" type="button" routerLink="/rCentre" >Edit</a>
+    </div>
     </form>
    <!-- <mat-card-footer class="sign">
       <p>Doesn't have any account? <a routerLink="/register">Sign Up Now</a></p>
