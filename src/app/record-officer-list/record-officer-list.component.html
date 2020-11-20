@@ -1,4 +1,7 @@
-<table mat-table [dataSource]= "officers"  *ngFor="let officer of officers" class="mat-elevation-z8">
+
+<div class="container">
+
+<table mat-table *ngFor="let officer of officers" class="mat-elevation-z8">
 
   <ng-container matColumnDef="position">
     <th mat-header-cell *matHeaderCellDef> Position </th>
@@ -36,3 +39,5 @@
 </table>
 
 <p class="info-text mat-body-1" *ngIf ="officers.length <= 0" style="color:white;">No tester added yet</p>
+
+</div>

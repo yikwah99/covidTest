@@ -1,71 +1,73 @@
-form .normal-form{
 
-margin: 10px;
-}
 
-button{
-  display: inline;
-}
-
-mat-grid-list{
+.box {
+  padding: 30px 10px;
+margin-top: 20px;
+  background: white;
   border-radius: 10px;
-  background-color: white;
-  margin: 50px 20px;
-  }
+  margin-bottom: 30px;
 
-  .control-cont{
-    width: 100%;
-    padding: 5%;
-  }
-
-  mat-form-field{
-      width:100%;
-    }
-
-#na{
-  width:10%;
 }
-  h2{
-    text-align: center;
-    color:white;
+h1{
+  color: #fff7fa;
+}
 
-  }
-  .container{
-
-    height: 100%;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url("/assets/b.jpg") no-repeat center;
-    background-size: cover;
-    min-height: 300px;
-
-  }
-  .register-wrapper{
-    margin-bottom: 20px;
-  }
-
-  h1{
-    margin-bottom: 30px;
-  }
+.register-wrapper{
 
 
-  mat-card{
-    position: relative;
-    float: left;
-    padding: 30px 30px;
-    width: 100%;
-    background: white;
-    border-radius: 10px;
-    transform: scale(1);
-    -webkit-transform: scale(1);
-    -ms-transform: scale(1);
-    z-index: 5;
-    max-width: 330px;
-    margin-top: 20px;
-  }
+  /* Full height */
+  height: 100%;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-bottom: 50px;
 
-  mat-form-field{
-    margin: 0px;
-  }
+}
+ .registerform {
+  min-width: 100%;
+ max-width: 400px;
+  width: 100%;
+  height: 100%;
+}
 
-  mat-button{
-    float: left;
-  }
+.register-wrapper .input-field{
+  width: 100%;
+}
+
+.register-wrapper mat-card-header {
+  text-align: center;
+  display: block;
+  font-weight: 700;
+  color: black;
+  padding: 20px 0px;
+  margin-bottom: 20px;
+}
+
+.register-wrapper mat-card-header mat-card-title {
+  font-size: 30px;
+  margin: 0;
+}
+
+.register-wrapper .mat-card {
+  padding: 20px 30px 30px;
+  margin-top: 20px;
+}
+
+mat-form-field{
+  margin: 5px 0px;
+}
+
+.btn-block{
+  margin-top: 10px;
+
+  width: 100%;
+}
+
+
+mat-card-header{
+background-color:   white;
+}
+
+
+

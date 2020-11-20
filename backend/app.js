@@ -28,6 +28,8 @@ res.setHeader("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OP
 next();
 });
 
+
+//testkit//
 app.post("/api/testkits",(req,res,next)=>{
 
 const testkit = new Testkit({
@@ -75,6 +77,42 @@ app.put('/api/testkits/:id', (req,res,next)=>{
     res.status(200).json({message:"Updated"})
   })
 })
+//end of testkit//
+
+//login//
+app.post('/api/user/login',(req,res,next)=>{
+  let fetchedUser;
+  User.findOne({username:req.body.username})
+  .then(user => {
+    if(!user){
+      return res.status(401).json({
+        message:'Auth failed'
+      });
+    }
+    fetchedUser =user
+    return bcrypt.compare(req.body.password, user.password)
+  })
+  .then(result=> {
+    if(!result){
+      return res.status(401).json({
+        message:'Auth failed'
+      });
+    }const token = jwt.sign(
+      {username:fetchedUser.username, fullname:fetchedUser.fullname,role:fetchedUser.role, userId: fetchedUser._id},
+      "secret this should be longer",
+      {expiresIn:'1h'}
+    );
+      res.status(200).json({
+        token: token
+      })
+
+  })
+  .catch(err => {
+    return res.status(401).json({
+      message:'Auth failed'
+    });
+  })
+  })
 /*
 
 app.use('/api/testkits',(req, res,next)=>{

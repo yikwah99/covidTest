@@ -10,8 +10,8 @@
     <form class="form" class="registerform" (submit)= "onLogin(loginForm)" #loginForm="ngForm">
       <mat-card-content>
         <mat-form-field class="input-field">
-          <input matInput type="username" name="username" #emailInput="ngModel" ngModel required placeholder="Email">
-          <mat-error *ngIf="emailInput.invalid"> Please enter valid username</mat-error>
+          <input matInput type="username" name="username" #usernameInput="ngModel" ngModel required placeholder="Username">
+          <mat-error *ngIf="usernameInput.invalid"> Please enter valid username</mat-error>
         </mat-form-field>
         <mat-form-field class="input-field">
           <input matInput type="password" name="password" placeholder="Password" minlength="6" ngModel #passwordInput="ngModel"
@@ -22,9 +22,9 @@
 
       <button mat-raised-button color="primary" class="btn-block">Login</button>
     </form>
-    <mat-card-footer class="sign">
+   <!-- <mat-card-footer class="sign">
       <p>Doesn't have any account? <a routerLink="/register">Sign Up Now</a></p>
-    </mat-card-footer>
+    </mat-card-footer>-->
   </mat-card>
 
 </div>
