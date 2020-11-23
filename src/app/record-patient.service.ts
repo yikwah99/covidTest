@@ -1,21 +1,73 @@
 import {Patient} from "./patient.model";
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import {map} from 'rxjs/operators';
+
+
 @Injectable({
   providedIn: 'root'
 })
 
 export class PatientService{
-  private patients: Patient[] = [
-    {'username': "liewliewliew",'password': "66666666",'fullName': "Liew Cai Juan",'idNo': "990606666666",'sex': "F",'age': 6,'birthday': "6/6/1999",'phoneNo': "0166666666",'address': "01 Jalan Kepong",'zip': "47410",'city': "Petaling Jaya",'country': "Malaysia",'state': "Selangor"},
-    {'username': "jason123",'password': "abc12345",'fullName': "Jason Liew",'idNo': "990202222222",'sex': "M",'age': 18,'birthday': "2/2/1999",'phoneNo': "0123336666",'address': "02 Jalan Kepong",'zip': "47520",'city': "Petaling Jaya",'country': "Malaysia",'state': "Selangor"},
-    {'username': "karl333",'password': "kekwtrihard",'fullName': "Karl Choo",'idNo': "030202222233",'sex': "M",'age': 18,'birthday': "3/2/2003",'phoneNo': "0177737766",'address': "01 Jalan Anandur",'zip': "47320",'city': "Petaling Jaya",'country': "Malaysia",'state': "Selangor"},
-    {'username': "ben1999",'password': "hellohello123",'fullName': "Benjamin Choo",'idNo': "9901011111",'sex': "M",'age': 21,'birthday': "1/1/1999",'phoneNo': "0125267732",'address': "01 Jalan Ipoh",'zip': "47400",'city': "Petaling Jaya",'country': "Malaysia",'state': "Selangor"}
-    ];
+  private patients: Patient[]=[];
+  private patientsUpdated = new Subject <Patient[]>();
   
-  
+  constructor(private http:HttpClient){}
+ /*
   getPatients(){
-    return this.patients;
+    this.http.get<{message: string, patients: any}>('http:/localhost:3000/api/patients').subscribe((patientData)=>{
+      this.patients = patientData.patients;
+      this.patientsUpdated.next([...this.patients]);
+    })
   }
+   */
+  getPatients(){
+   // return this.testkits;
+    console.log("test");
+   this.http.get<{message: string, patients: any}>('http://localhost:3000/api/patients')
+   .pipe(map((patientData)=>{
+     return patientData.patients.map(patient => {
+       return {
+         username:patient.username , 
+         password:patient.password , 
+         fullName:patient.fullName , 
+         idNo:patient.idNo , 
+         sex:patient.sex , 
+         age:patient.age , 
+         birthday:patient.birthday , 
+         phoneNo:patient.phoneNo , 
+         address:patient.address , 
+         zip:patient.zip , 
+         city:patient.city , 
+         country:patient.country , 
+         state:patient.state 
+       };
+     });
+   }))
+   .subscribe(transformedPatients => {
+     this.patients = transformedPatients;
+     this.patientsUpdated.next([...this.patients]);
+   })
+  }
+  
+  
+  getPatientsUpdateListener(){
+    return this.patientsUpdated.asObservable();
+  }
+  
+  addPatient(username: string, password: string, fullName: string, idNo: string, sex: string, age: number, birthday: string, phoneNo: string, address: string, zip: string, city: string, country: string, state: string){
+    const patient: Patient = {username:username, password:password, fullName:fullName, idNo:idNo, sex:sex, age:age, birthday:birthday, phoneNo:phoneNo, address:address, zip:zip, city:city, country:country, state:state};
+    this.http
+     .post<{message: string}>('http://localhost:3000/api/patients',patient)
+     .subscribe((responseData)=>{
+      console.log(responseData.message);
+      this.patients.push(patient);
+      this.patientsUpdated.next([...this.patients]);
+     });
+    
+  }
+  
   
   getCollection(){
     return this.patients;

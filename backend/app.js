@@ -8,6 +8,7 @@ const checkAuth =require("./middleware/check-auth");
 
 const User = require ("./models/user");
 const Testkit =require('./models/testkit');
+const Patient =require('./models/patient');
 
 
 mongoose.connect("mongodb+srv://max:OklBMmpdxA436z7K@cluster0.awk8b.mongodb.net/covidTest?retryWrites=true&w=majority")
@@ -28,7 +29,44 @@ res.setHeader("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OP
 next();
 });
 
+//patient
+app.post("/api/patients",(req,res,next)=>{
+  const patient = new Patient({
+  username: req.body.username,
+  password: req.body.password,
+  fullName: req.body.fullName,
+  idNo: req.body.idNo,
+  sex: req.body.sex,
+  age: req.body.age,
+  birthday: req.body.birthday,
+  phoneNo: req.body.phoneNo,
+  address: req.body.address,
+  zip: req.body.zip,
+  city: req.body.city,
+  country: req.body.country,
+  state: req.body.state
+  });
+  testkit.save().then(createdTestkit =>{
+    console.log(patient)
+    res.status(200).json({
+      message:'Testkit added successfully'
+    })
+  })
+  res.status(201).json({
+    message:"Added"
+  })
+}); 
 
+app.get("/api/patients",(req,res,next)=>{
+  Patient.find().then(patients =>{
+    res.status(200).json({
+      message: 'Patient fetched successfully',
+      posts: patients
+    });
+  })
+  
+});
+//End of patient
 //testkit//
 app.post("/api/testkits",(req,res,next)=>{
 
