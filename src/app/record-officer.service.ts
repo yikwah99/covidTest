@@ -16,7 +16,7 @@ export class RecordOfficerService {
   private officers: Officer[] = [];
   private officerUpdated = new Subject<Officer[]>();
 
-  getOfficer(){
+  getOfficers(){
     this.http.get<{message: string, officers: any}>('http://localhost:3000/api/officers')
    .pipe(map((officerData)=>{
      return officerData.officers.map(officer=> {
@@ -39,14 +39,15 @@ export class RecordOfficerService {
   getOfficerUpdateListener(){
     return this.officerUpdated.asObservable();
   }
-  addOfficer( username: string, password: string, fullname: string, position: "Tester"){
-    const officer:Officer = {id:null, username:username, password:password, fullname:fullname, position:position};
+  addOfficer( centreName:string, username: string, password: string, fullname: string, position: "Tester"){
+    const officer:Officer = {id:null, centreName:centreName,username:username, password:password, fullname:fullname, position:position};
     this.http
       .post<{message: string, officerId: string}>('http://localhost:3000/api/officers', officer)
       .subscribe((responseData)=>{
+
       const id = responseData.officerId;
       officer.id = id;
-      //console.log(responseData.message);
+      console.log(responseData.message);
       this.officers.push(officer);
       this.officerUpdated.next([...this.officers]);
       //this.rounter.navigate(['/']);

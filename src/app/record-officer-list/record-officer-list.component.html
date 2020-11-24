@@ -3,6 +3,15 @@
 
 <table mat-table *ngFor="let officer of officers" class="mat-elevation-z8">
 
+  <ng-container matColumnDef="userID">
+    <th mat-header-cell *matHeaderCellDef> UserID</th>
+    <td mat-cell *matCellDef="let officer"> {{officer.id}} </td>
+  </ng-container>
+  <ng-container matColumnDef="testcentre">
+    <th mat-header-cell *matHeaderCellDef> Testcentre</th>
+    <td mat-cell *matCellDef="let officer"> {{officer.testcentre}} </td>
+  </ng-container>
+
   <ng-container matColumnDef="position">
     <th mat-header-cell *matHeaderCellDef> Position </th>
     <td mat-cell *matCellDef="let officer"> {{officer.position}} </td>

@@ -13,4 +13,4 @@ const officerSchema = mongoose.Schema({
 
 officerSchema.plugin(uniqueValidator);
 
-module.exports = mongoose.model('Officer', officerSchema);
+module.exports = mongoose.model('Officers', officerSchema);

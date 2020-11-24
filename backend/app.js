@@ -246,7 +246,7 @@ app.post("/api/officers",(req,res,next)=>{
     username:req.body.username,
     password:req.body.password
   });
-  centre.save().then(createdOfficer =>{
+  officer.save().then(createdOfficer =>{
     console.log(officer)
     res.status(200).json({
       message:'Officer added successfully',
@@ -259,7 +259,46 @@ app.post("/api/officers",(req,res,next)=>{
   // })
   });
 
+app.get('/api/officers',(req, res, next)=>{
+    Test.find().then(tests =>{
+      res.status(200).json({
+        message:'Fetched',
+        officers: documents
+      });
+    })
+  });
 
+  /*
+  app.put('/api/tests/:id', (req,res,next)=>{
+    const test = new Test({
+      _id:req.body.id,
+      username:req.body.username,
+      testDate:req.body.testDate,
+      status:req.body.status,
+      result:req.body.result,
+      resultDate:req.body.resultDate,
+      symptoms: req.body.symptoms,
+      patientType: req.body.patientType
+    });
+    console.log(test);
+    Test.updateOne({_id: req.params.id}, test).then(result =>{
+      if(result){
+      console.log(result);
+      res.status(200).json({message:"Updated Sucessfully"});
+      }else{
+        alert("Update failed");
+      }
+    });
+  });
+
+  app.delete('/api/tests/:id', (req,res,next)=>{
+    Test.deleteOne({_id: req.params.id}).then(result =>{
+      console.log(result);
+      res.status(200).json({message:"Deleted"});
+    })
+  })
+
+*/
 //officer//
 
 

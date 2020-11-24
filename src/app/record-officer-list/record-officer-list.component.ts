@@ -3,6 +3,8 @@ import {Officer} from '../officer.model';
 import{RecordOfficerService} from '../record-officer.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { Subscription } from 'rxjs';
+import { Testcentre } from '../testcentre.model';
+import { TestcentreService } from '../testcentre.service';
 
 @Component({
   selector: 'app-record-officer-list',
@@ -10,19 +12,27 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./record-officer-list.component.css']
 })
 export class RecordOfficerListComponent implements OnInit {
-  displayedColumns: string[] = ['position', 'username', 'password', 'fullname','action'];
+  displayedColumns: string[] = ['userID','testcentre','position', 'username', 'password', 'fullname','action'];
   officers: Officer[] = [];
-  dataSource: MatTableDataSource<Officer>;
+  private officerSub:Subscription;
+  dataSource = new MatTableDataSource(this.officers);
+
   //dataSource = this.officers;
   //dataSource = ELEMENT_DATA;
-  constructor(public recordofficerservice: RecordOfficerService) {
+  constructor(public recordofficerservice: RecordOfficerService,public testcentreService: TestcentreService) {
     //this.dataSource = new MatTableDataSource(this.officers);
   }
 
 
-  ngOnInit(): void {
+  ngOnInit(){
    // this.officers = this.recordofficerservice.getOfficer();
-  this.recordofficerservice.getOfficer()
+  //this.recordofficerservice.getOfficers()
+  this.testcentreService.getTestCentres();
+  this.recordofficerservice.getOfficers();
+  this.officerSub = this.recordofficerservice.getOfficerUpdateListener()
+  .subscribe(( officers: Officer[])=>{
+    this. officers=  officers;
+  })
 
   }
 
