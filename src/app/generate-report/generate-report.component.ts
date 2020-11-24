@@ -23,7 +23,7 @@ export class GenerateReportComponent implements OnInit, OnDestroy {
   
   private testSub:Subscription;
 
-  displayedColumns: string[] = ['testID', 'result', 'resultDate', 'status','testDate','username','action'];
+  displayedColumns: string[] = ['testID', 'result', 'resultDate', 'status','testDate','username','action','delete'];
   
   dataSource = new MatTableDataSource(this.tests);
   
@@ -57,7 +57,7 @@ export class GenerateReportComponent implements OnInit, OnDestroy {
     this.recordTestService.setID(row.id);
     this.recordTestService.setUsername(row.username);
     
-    if (status === 'Completed'){
+    if (row.status === 'Completed'){
       console.log("view");
       this.dialog.open(ViewTestComponent,dialogConfig);
     }
@@ -72,6 +72,10 @@ export class GenerateReportComponent implements OnInit, OnDestroy {
     dialogConfig.maxHeight= '300vh';
 
   }
+  onDeleteTest(id: string){
+    this.recordTestService.deleteTest(id);
+  }
+  
   ngOnDestroy(){
     this.testSub.unsubscribe();
   }

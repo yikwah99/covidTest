@@ -17,8 +17,8 @@ export class RecordTestService {
   
   constructor(private http:HttpClient){}
   
-  addTest(username: string,testDate: string,status: string,result: string,resultDate: string){
-    const test: Test = {id: null, username:username,testDate:testDate,status:status,result:result,resultDate:resultDate};
+  addTest(username: string,testDate: string,status: string,result: string,resultDate: string, symptoms: string, patientType: string){
+    const test: Test = {id: null, username:username,testDate:testDate,status:status,result:result,resultDate:resultDate,symptoms:symptoms,patientType:patientType};
     this.http
      .post<{message: string, testID: string}>('http://localhost:3000/api/tests',test)
      .subscribe((responseData)=>{
@@ -39,6 +39,8 @@ export class RecordTestService {
          status: test.status,
          result: test.result,
          resultDate: test.resultDate,
+         symptoms: test.symptoms,
+         patientType: test.patientType,
          id: test._id
        };
      });
@@ -53,8 +55,8 @@ export class RecordTestService {
     return{...this.tests.find(t=> t.id===id)};
   }
   
-  updateTest(id: string, username: string, testDate: string, status: string, result: string,  resultDate: string){
-    const test: Test ={id: id, username: username, testDate: testDate, status: status, result: result,  resultDate: resultDate};
+  updateTest(id: string, username: string, testDate: string, status: string, result: string,  resultDate: string, symptoms: string, patientType: string){
+    const test: Test ={id: id, username: username, testDate: testDate, status: status, result: result,  resultDate: resultDate,symptoms:symptoms,patientType:patientType};
     this.http.put('http://localhost:3000/api/tests/'+id,test)
     .subscribe(response =>console.log(response));
   }
@@ -80,4 +82,14 @@ export class RecordTestService {
   getID(){
     return this.id;
   }
+  
+  deleteTest(id: string){
+     this.http.delete('http://localhost:3000/api/tests/'+ id)
+     .subscribe(()=>{
+      console.log('Deleted');
+     const updatedTests = this.tests.filter(test => test.id !== id)
+     this.tests = updatedTests,
+     this.testsUpdated.next([...this.tests]);
+     });
+   }
 }

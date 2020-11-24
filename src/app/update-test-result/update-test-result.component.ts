@@ -3,8 +3,8 @@ import { NgForm } from '@angular/forms';
 import {Patient} from '../patient.model';
 import {Test} from '../test.model';
 import {PatientService} from '../record-patient.service';
-import {ActivatedRoute, ParamMap} from '@angular/router';
 import {RecordTestService} from '../record-test.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-update-test-result',
@@ -19,7 +19,8 @@ export class UpdateTestResultComponent implements OnInit {
   
   constructor(
   public patientService: PatientService, 
-   public testService: RecordTestService) {
+   public testService: RecordTestService, 
+   public router: Router) {
     
   }
 
@@ -35,9 +36,10 @@ export class UpdateTestResultComponent implements OnInit {
     if (form.invalid){
       return;
     }
-    
-    this.testService.updateTest(this.id,this.test.username,this.test.testDate,"Completed",form.value.resultDate,form.value.result)
-    //this.router.navigate(['/generateReport'])
+    else{
+      this.testService.updateTest(this.id,this.test.username,this.test.testDate,"Completed",form.value.result,form.value.resultDate,this.test.symptoms,this.test.patientType);
+    this.router.navigate(['/generateReport']);
+    }
   }
   
   

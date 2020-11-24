@@ -8,6 +8,8 @@ const testSchema = mongoose.Schema({
   status: {type:String, required:true},
   result: {type:String, required:true},
   resultDate: {type:String, required:true},
+  symptoms: {type:String, required:true},
+  patientType: {type:String, required:true},
   tester: {type:String, required:false},
 });
 

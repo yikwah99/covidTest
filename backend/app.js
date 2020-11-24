@@ -35,11 +35,13 @@ next();
 
 app.post("/api/tests",(req,res,next)=>{
   const test = new Test({
-  username: req.body.username,
-  testDate: req.body.testDate,
-  status: req.body.status,
-  result: req.body.result,
-  resultDate: req.body.resultDate
+    username: req.body.username,
+    testDate: req.body.testDate,
+    status: req.body.status,
+    result: req.body.result,
+    resultDate: req.body.resultDate,
+    symptoms: req.body.symptoms,
+    patientType: req.body.patientType
   });
   test.save().then(createdTest =>{
     res.status(200).json({
@@ -68,7 +70,9 @@ app.put('/api/tests/:id', (req,res,next)=>{
     testDate:req.body.testDate,
     status:req.body.status,
     result:req.body.result,
-    resultDate:req.body.resultDate
+    resultDate:req.body.resultDate,
+    symptoms: req.body.symptoms,
+    patientType: req.body.patientType
   });
   console.log(test);
   Test.updateOne({_id: req.params.id}, test).then(result =>{
@@ -80,6 +84,13 @@ app.put('/api/tests/:id', (req,res,next)=>{
     }
   });
 });
+
+app.delete('/api/tests/:id', (req,res,next)=>{
+  Test.deleteOne({_id: req.params.id}).then(result =>{
+    console.log(result);
+    res.status(200).json({message:"Deleted"});
+  })
+})
 
 //end of test
 
@@ -120,6 +131,7 @@ app.get("/api/patients",(req,res,next)=>{
   })
 
 });
+
 //End of patient
 //testkit//
 app.post("/api/testkits",(req,res,next)=>{

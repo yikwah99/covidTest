@@ -100,12 +100,12 @@
         <div fxlayout="row">
           <h4>Admit Date</h4>
           <mat-form-field appearance="fill">
-            <mat-label>2/10/2020</mat-label>
+            <mat-label>{{ test.testDate }}</mat-label>
             <input matInput disabled>
           </mat-form-field>
           <h4>Patient Type</h4>
           <mat-form-field appearance="fill">
-            <mat-label>{{ test.id }}</mat-label>
+            <mat-label>{{ test.patientType }}</mat-label>
             <mat-select disabled #hospitalized="ngModel" ngModel name="hospitalized" matInput>
               <mat-option selected value="returnee">{{ test.id }}</mat-option>
             </mat-select>
@@ -113,7 +113,7 @@
         </div>
         <h4>Symptoms</h4>
         <mat-form-field appearance="fill">
-          <mat-label>Cough</mat-label>
+          <mat-label>{{ test.symptoms }}</mat-label>
           <input matInput disabled>
         </mat-form-field>
         <mat-divider></mat-divider>
@@ -135,7 +135,6 @@
         <div style="margin:auto; width:100%;display: flex;
       justify-content: center;">
           <button mat-raised-button color="primary" class="btn-block" type="submit">Save</button>
-          <button mat-raised-button color="warn" class="btn-block" type="cancel">Cancel</button>
         </div>
 
       </mat-card-content>

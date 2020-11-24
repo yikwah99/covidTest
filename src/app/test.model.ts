@@ -5,4 +5,6 @@ export class Test{
   status: string;
   result: string;
   resultDate: string;
+  symptoms: string;
+  patientType: string;
 }

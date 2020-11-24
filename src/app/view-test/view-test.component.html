@@ -1,4 +1,148 @@
 <div class="container">
+  <form >
+    <h1>Covid-19 Test</h1>
+    <mat-dialog-content>
+    <mat-card style="padding:30px 80px">
+      <h2>Covid-19 View Test Report</h2>
+      <mat-card-content>
+
+        <mat-divider></mat-divider>
+        <h3>Patient Information</h3>
+        <div fxlayout="row">
+          <div fxFlex="50" style="margin-right:10px;">
+            <h4>Full Name</h4>
+            <mat-form-field appearance="fill">
+              <mat-label>{{ patient.fullName }}</mat-label>
+              <input matInput disabled>
+            </mat-form-field>
+
+            <h4>Sex</h4>
+            <mat-form-field appearance="fill">
+              <mat-label>{{ patient.sex }}</mat-label>
+              <input matInput disabled>
+            </mat-form-field>
+
+            <h4>Date of Birth </h4>
+            <mat-form-field appearance="fill">
+              <mat-label>{{ patient.birthday }}</mat-label>
+              <input matInput disabled>
+            </mat-form-field>
+          </div>
+
+          <div fxFlex="50">
+            <h4>IC No./Passport No.</h4>
+            <mat-form-field appearance="fill">
+              <mat-label>{{ patient.idNo }}</mat-label>
+              <input matInput disabled>
+            </mat-form-field>
+
+            <h4>Age</h4>
+            <mat-form-field appearance="fill">
+              <mat-label>{{ patient.age }}</mat-label>
+              <input matInput disabled>
+            </mat-form-field>
+
+            <h4>Phone Number</h4>
+            <mat-form-field appearance="fill">
+              <mat-label>{{ patient.phoneNo }}</mat-label>
+              <input matInput disabled>
+            </mat-form-field>
+
+          </div>
+
+        </div>
+
+        <h4>Address</h4>
+        <mat-form-field appearance="fill">
+          <mat-label>{{ patient.address }}</mat-label>
+          <input matInput disabled>
+        </mat-form-field>
+
+        <div fxlayout="row">
+          <div fxFlex="50" style="margin-right:10px;">
+
+
+            <h4>Zip Code</h4>
+            <mat-form-field appearance="fill">
+              <mat-label>{{ patient.zip }}</mat-label>
+              <input matInput disabled>
+            </mat-form-field>
+
+            <h4>Country</h4>
+            <mat-form-field appearance="fill">
+              <mat-label>{{ patient.country }}</mat-label>
+              <input matInput disabled>
+            </mat-form-field>
+          </div>
+
+          <div fxFlex="50">
+
+
+            <h4>City</h4>
+            <mat-form-field appearance="fill">
+              <mat-label>{{ patient.city }}</mat-label>
+              <input matInput disabled>
+            </mat-form-field>
+
+            <h4>State</h4>
+            <mat-form-field appearance="fill">
+              <mat-label>{{ patient.state }}</mat-label>
+              <input matInput disabled>
+            </mat-form-field>
+
+          </div>
+
+        </div>
+
+
+        <mat-divider></mat-divider>
+        <h3>Clinical Information</h3>
+        <div fxlayout="row">
+          <h4>Admit Date</h4>
+          <mat-form-field appearance="fill">
+            <mat-label>{{ test.testDate }}</mat-label>
+            <input matInput disabled>
+          </mat-form-field>
+          <h4>Patient Type</h4>
+          <mat-form-field appearance="fill">
+            <mat-label>{{ test.patientType }}</mat-label>
+            <mat-select disabled #hospitalized="ngModel" ngModel name="hospitalized" matInput>
+              <mat-option selected value="returnee">{{ test.id }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <h4>Symptoms</h4>
+        <mat-form-field appearance="fill">
+          <mat-label>{{ test.symptoms }}</mat-label>
+          <input matInput disabled>
+        </mat-form-field>
+        <mat-divider></mat-divider>
+        <h3>Test Result</h3>
+        <div>
+          <h4>Covid-19 Test Result</h4>
+          <mat-form-field appearance="fill">
+            <mat-label>{{ test.result }}</mat-label>
+            <mat-select disabled #result="ngModel" ngModel name="result" matInput>
+              <mat-option value="positive">Positive</mat-option>
+              <mat-option value="negative">Negative</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <h4>Result Date</h4>
+          <mat-form-field appearance="fill">
+            <mat-label>{{ test.resultDate }}</mat-label>
+            <input disabled matInput >
+          </mat-form-field>
+        </div>
+
+      </mat-card-content>
+    </mat-card>
+
+  </mat-dialog-content>
+  </form>
+</div>
+
+
+<!--<div class="container">
 
   <h1 style="color:white">Covid-19 Test Result</h1>
   <mat-dialog-content>
@@ -177,3 +321,4 @@
 
 </mat-dialog-content>
 </div>
+-->

@@ -4,6 +4,7 @@ import {Patient} from '../patient.model';
 import {PatientService} from '../record-patient.service';
 import {ActivatedRoute, ParamMap} from '@angular/router';
 import {RecordTestService} from '../record-test.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-update-test',
@@ -15,9 +16,10 @@ export class UpdateTestComponent implements OnInit{
   patient: Patient;
   private username: string;
   
-  constructor(public patientService: PatientService, public testService: RecordTestService, public route:ActivatedRoute) { }
+  constructor(public patientService: PatientService, public testService: RecordTestService, public route:ActivatedRoute, public router: Router) { }
 
   ngOnInit(){
+    this.patientService.getPatients();
     this.route.paramMap.subscribe((paramMap:ParamMap)=>{
       if(paramMap.has('username')){
         this.username= paramMap.get('username');
@@ -32,7 +34,8 @@ export class UpdateTestComponent implements OnInit{
       return;
     }
     else{
-      this.testService.addTest(this.username,form.value.testDate,"Pending","-","-")
+      this.testService.addTest(this.username,form.value.testDate,"Pending","-","-",form.value.symptoms,form.value.patientType);
+      this.router.navigate(['/recordTest']);
       
     }
   }

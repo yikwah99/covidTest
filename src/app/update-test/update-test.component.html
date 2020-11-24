@@ -6,30 +6,6 @@
     <form clas="newtestform" (submit)="onAddNewTest(newTestForm)" #newTestForm="ngForm">
       <h2>Covid-19 Test Form</h2>
       <mat-card-content>
-        <h3>Reporter Information</h3>
-        <div fxlayout="row">
-          <div fxFlex="50" style="margin-right:10px;">
-            <h4>Report Date</h4>
-            <mat-form-field  appearance="fill">
-              <mat-label></mat-label>
-              <input #testDate="ngModel" ngModel name="testDate" type="date" matInput >
-            </mat-form-field>
-            <h4>Tester Name</h4>
-            <mat-form-field appearance="fill">
-              <mat-label>Dr. Dylan Chng</mat-label>
-              <input matInput disabled>
-            </mat-form-field>
-          </div>
-
-          <div fxFlex="50">
-            <h4>Test Centre</h4>
-            <mat-form-field appearance="fill">
-              <mat-label>Klinik OK Petaling Jaya</mat-label>
-              <input matInput disabled>
-            </mat-form-field>
-          </div>
-
-        </div>
   
         <mat-divider></mat-divider>
         <h3>Patient Information</h3>
@@ -123,9 +99,10 @@
         <mat-divider></mat-divider>
         <h3>Clinical Information</h3>
         <div fxlayout="row">
+          <div fxFlex="50" style="margin-right:10px;">
             <h4>Patient Type</h4>
             <mat-form-field appearance="fill">
-              <mat-select #hospitalized="ngModel" ngModel name="hospitalized" matInput>
+              <mat-select #patientType="ngModel" ngModel name="patientType" matInput>
                 <mat-option value="returnee">Returnee</mat-option>
                 <mat-option value="quarantined">Quarantined</mat-option>
                 <mat-option value="close contact">Close contact</mat-option>
@@ -133,6 +110,14 @@
                 <mat-option value="suspected">Suspected</mat-option>
               </mat-select>
             </mat-form-field>
+          </div>
+          <div fxFlex="50">
+            <h4>Report Date</h4>
+            <mat-form-field  appearance="fill">
+              <mat-label></mat-label>
+              <input #testDate="ngModel" ngModel name="testDate" type="date" matInput >
+            </mat-form-field>
+          </div>
         </div>
         <h4>Symptoms</h4>
         <mat-form-field appearance="fill">
@@ -143,7 +128,7 @@
         <div style="margin:auto; width:100%;display: flex;
       justify-content: center;">
           <button mat-raised-button color="primary" class="btn-block" type="submit">Save</button>
-          <button mat-raised-button color="warn" class="btn-block" type="cancel">Cancel</button>
+          <button mat-raised-button [routerLink]= "['/recordTest']" color="warn" class="btn-block">Cancel</button>
         </div>
 
       </mat-card-content>

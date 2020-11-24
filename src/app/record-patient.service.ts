@@ -72,18 +72,4 @@ export class PatientService{
     return{...this.patients.find(t => t.username===username)};
   }
   
-  getCollection(){
-    return this.patients;
-  }
-  
-  addToCollection(item:Patient){
-    //if (this.collection.indexOf(item) !==-1){
-    //  return
-    // }
-    this.patients.push(item);
-  }
-  
-  removeFromCollection(item:Patient){
-    this.patients.splice(this.patients.indexOf(item), 1);
-  }
 }
