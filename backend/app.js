@@ -55,7 +55,7 @@ app.post("/api/patients",(req,res,next)=>{
   res.status(201).json({
     message:"Added"
   })
-}); 
+});
 
 app.get("/api/patients",(req,res,next)=>{
   Patient.find().then(patients =>{
@@ -64,7 +64,7 @@ app.get("/api/patients",(req,res,next)=>{
       patients: patients
     });
   })
-  
+
 });
 //End of patient
 //testkit//
@@ -78,13 +78,13 @@ testkit.save().then(createdTestkit =>{
   console.log(testkit)
   res.status(200).json({
     message:'Testkit added successfully',
-    postId: createdTestkit._id
+    testkitId: createdTestkit._id
   })
 })
-console.log(testkit);
-res.status(201).json({
-  message:"Added"
-})
+// console.log(testkit);
+// res.status(201).json({
+//   message:"Added"
+// })
 });
 
 app.get('/api/testkits',(req, res, next)=>{
