@@ -46,7 +46,7 @@ app.post("/api/patients",(req,res,next)=>{
   country: req.body.country,
   state: req.body.state
   });
-  testkit.save().then(createdTestkit =>{
+  patient.save().then(createdTestkit =>{
     console.log(patient)
     res.status(200).json({
       message:'Testkit added successfully'
@@ -61,7 +61,7 @@ app.get("/api/patients",(req,res,next)=>{
   Patient.find().then(patients =>{
     res.status(200).json({
       message: 'Patient fetched successfully',
-      posts: patients
+      patients: patients
     });
   })
   
