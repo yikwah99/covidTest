@@ -1,5 +1,5 @@
 export interface Testcentre{
- // id:string;
+  id:string;
   centreName: string;
 
 }

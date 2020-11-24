@@ -10,7 +10,7 @@ const User = require ("./models/user");
 const Testkit =require('./models/testkit');
 const Patient =require('./models/patient');
 const Test =require('./models/test');
-
+const TestCentre =require('./models/testcentre');
 
 mongoose.connect("mongodb+srv://max:OklBMmpdxA436z7K@cluster0.awk8b.mongodb.net/covidTest?retryWrites=true&w=majority", { useNewUrlParser: true })
 .then(()=>{
@@ -156,6 +156,28 @@ app.put('/api/testkits/:id', (req,res,next)=>{
 
 //end of testkit//
 
+
+//centre//
+app.post("/api/testcentres",(req,res,next)=>{
+
+  const centre = new Centre({
+    centretName: req.body.centreName,
+  });
+  centre.save().then(createdCentre =>{
+    console.log(centre)
+    res.status(200).json({
+      message:'Centre added successfully',
+      centreId: createdCentre._id
+    });
+  });
+  // console.log(testkit);
+  // res.status(201).json({
+  //   message:"Added"
+  // })
+  });
+
+
+//centre//
 
 //signup
 

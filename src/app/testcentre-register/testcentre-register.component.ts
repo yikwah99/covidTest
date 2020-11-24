@@ -2,6 +2,8 @@ import { Component, OnInit, EventEmitter, Input, Output} from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import {TestcentreService} from '../testcentre.service';
+import { ActivatedRoute, ParamMap} from '@angular/router';
+import { Testcentre} from '../testcentre.model';
 
 @Component({
   selector: 'app-testcentre-register',

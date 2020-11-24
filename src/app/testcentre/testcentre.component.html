@@ -26,11 +26,11 @@
       </mat-card-content>
       <mat-card-subtitle>Test Centre </mat-card-subtitle>
       <!-- <button mat-raised-button color="primary"  routerLink="/rCentre">Add</button> -->
-      <ng-container *ngIf ="name.length <= 0">
+      <ng-container *ngIf ="testcentres.length <= 0">
         <input matInput disabled  value="N/A" id="na" >
         <button mat-raised-button color="primary" type="button" routerLink="/rCentre" >Add</button>
       </ng-container>
-      <div    *ngFor="let name of name" >
+      <div    *ngFor="let name of testcentres" >
       <input matInput disabled value= "{{name.centreName}}" >
       <a mat-raised-button color="primary" type="button" routerLink="/rCentre" >Edit</a>
     </div>
