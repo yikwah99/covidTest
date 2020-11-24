@@ -132,6 +132,6 @@ import { UpdateTestResultComponent } from './update-test-result/update-test-resu
   ],
   providers: [PatientService,{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi:true}],
   bootstrap: [AppComponent],
-  entryComponents:[ViewTestComponent]
+  entryComponents:[ViewTestComponent,UpdateTestResultComponent]
 })
 export class AppModule { }

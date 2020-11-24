@@ -69,7 +69,6 @@ export class PatientService{
   }
   
   getPatient(username: string){
-    console.log(username);
     return{...this.patients.find(t => t.username===username)};
   }
   

@@ -9,6 +9,7 @@ import {MatDialog, MatDialogConfig, MatDialogRef, MAT_DIALOG_DATA} from '@angula
 import {RecordTestService} from '../record-test.service';
 import {Test} from '../test.model';
 import {ActivatedRoute, ParamMap} from '@angular/router';
+import {PatientService} from '../record-patient.service';
 //formatDate(new Date(), 'dd/MM/yyyy', 'en');
 
 @Component({
@@ -26,7 +27,7 @@ export class GenerateReportComponent implements OnInit, OnDestroy {
   
   dataSource = new MatTableDataSource(this.tests);
   
-  constructor(public recordTestService: RecordTestService, private dialog:MatDialog) {
+  constructor(public recordTestService: RecordTestService, public patientService: PatientService,private dialog:MatDialog) {
 
   }
   searchKey: string;
@@ -35,9 +36,9 @@ export class GenerateReportComponent implements OnInit, OnDestroy {
     this.testSub = this.recordTestService.getTestUpdateListener()
     .subscribe((tests: Test[])=>{
       this.tests = tests;
-      console.log(tests);
       this.dataSource.data = tests;
     })
+    this.patientService.getPatients();
     //this.dataSource.data = this.tests;
     
   }
@@ -50,8 +51,12 @@ export class GenerateReportComponent implements OnInit, OnDestroy {
     this.dataSource.filter = this.searchKey.trim().toLowerCase();
   }
 
-  onViewReport(status: string){
+  onViewReport(row){
     const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = {username: row.username};
+    this.recordTestService.setID(row.id);
+    this.recordTestService.setUsername(row.username);
+    
     if (status === 'Completed'){
       console.log("view");
       this.dialog.open(ViewTestComponent,dialogConfig);

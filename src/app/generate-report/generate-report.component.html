@@ -30,7 +30,7 @@ fxLayoutGap.xs="0">
     </ng-container>
     <ng-container matColumnDef="resultDate">
       <mat-header-cell *matHeaderCellDef mat-sort-header>Result Date</mat-header-cell>
-      <mat-cell *matCellDef="let element">{{element.resultDate | date : "dd-MM-yyyy"}}</mat-cell>
+      <mat-cell *matCellDef="let element">{{element.resultDate}}</mat-cell>
     </ng-container>
     <ng-container matColumnDef="status">
       <mat-header-cell *matHeaderCellDef mat-sort-header>Status</mat-header-cell>
@@ -49,7 +49,7 @@ fxLayoutGap.xs="0">
       <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
       <mat-cell *matCellDef="let element" >
       <mat-dialog-actions>
-        <button mat-icon-button  (click)="onViewReport(element.status)"> 
+        <button mat-icon-button  (click)="onViewReport(element)"> 
           <span *ngIf="element.status === 'Completed'">View</span>
           <span *ngIf="element.status === 'Pending'">Update</span>
           

@@ -61,6 +61,26 @@ app.get('/api/tests',(req, res, next)=>{
   })
 });
 
+app.put('/api/tests/:id', (req,res,next)=>{
+  const test = new Test({
+    _id:req.body.id,
+    username:req.body.username,
+    testDate:req.body.testDate,
+    status:req.body.status,
+    result:req.body.result,
+    resultDate:req.body.resultDate
+  });
+  console.log(test);
+  Test.updateOne({_id: req.params.id}, test).then(result =>{
+    if(result){
+    console.log(result);
+    res.status(200).json({message:"Updated Sucessfully"});
+    }else{
+      alert("Update failed");
+    }
+  });
+});
+
 //end of test
 
 //patient
