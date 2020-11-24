@@ -11,7 +11,7 @@ const Testkit =require('./models/testkit');
 const Patient =require('./models/patient');
 
 
-mongoose.connect("mongodb+srv://max:OklBMmpdxA436z7K@cluster0.awk8b.mongodb.net/covidTest?retryWrites=true&w=majority")
+mongoose.connect("mongodb+srv://max:OklBMmpdxA436z7K@cluster0.awk8b.mongodb.net/covidTest?retryWrites=true&w=majority", { useNewUrlParser: true })
 .then(()=>{
   console.log('Connected to database');
 })
@@ -108,9 +108,9 @@ app.put('/api/testkits/:id', (req,res,next)=>{
   const testkit = new Testkit({
     _id:req.body.id,
     testkitName: req.body.testkitName,
-    stock: req.body.content
+    stock: req.body.stock
   })
-  Testkit.updateOne({_id:req.params.id}, testkit).then(result =>{
+  Testkit.updateOne({_id: req.params.id}, testkit).then(result =>{
     console.log(result);
     res.status(200).json({message:"Updated"})
   })
