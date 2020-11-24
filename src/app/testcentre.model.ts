@@ -1,4 +1,4 @@
-export interface Testcentre{
+export class Testcentre{
   id:string;
   centreName: string;
 

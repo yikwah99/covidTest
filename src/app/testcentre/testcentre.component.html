@@ -32,7 +32,8 @@
       </ng-container>
       <div    *ngFor="let name of testcentres" >
       <input matInput disabled value= "{{name.centreName}}" >
-      <a mat-raised-button color="primary" type="button" routerLink="/rCentre" >Edit</a>
+      <a mat-raised-button color="primary" type="button"  >Edit</a>
+      <!-- <a mat-raised-button color="primary" type="button" [routerLink]= "['/edit',testcentres.id]" >Edit</a> -->
     </div>
     </form>
    <!-- <mat-card-footer class="sign">

@@ -1,9 +1,10 @@
-import { Component, OnInit, EventEmitter, Input, Output} from '@angular/core';
+import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import {TestcentreService} from '../testcentre.service';
-import { ActivatedRoute, ParamMap} from '@angular/router';
-import { Testcentre} from '../testcentre.model';
+import { TestcentreService } from '../testcentre.service';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+
+import { Testcentre } from '../testcentre.model';
 
 @Component({
   selector: 'app-testcentre-register',
@@ -11,16 +12,28 @@ import { Testcentre} from '../testcentre.model';
   styleUrls: ['./testcentre-register.component.css']
 })
 export class TestcentreRegisterComponent implements OnInit {
-//   @Input() enteredCentre;
-//  @Output() addCentre= new EventEmitter();
+  //   @Input() enteredCentre;
+  //  @Output() addCentre= new EventEmitter();
 
-constructor(public testcentreService: TestcentreService,public route:ActivatedRoute) { }
-  display = false;
 
+constructor(public testcentreService: TestcentreService, public route: ActivatedRoute, private router: Router) { }
   testcentre: Testcentre;
+  private mode = "rCentre";
+  display = false;
+  private testcentreId: string;
 
- private testcentreId:string;
-  ngOnInit(): void {
+  ngOnInit() {
+    this.route.paramMap.subscribe((paramMap: ParamMap) => {
+      if (paramMap.has('testcentreId')) {
+        this.mode = "edit";
+        this.testcentreId = paramMap.get('testcentreId');
+       // this.testcentre = this.testcentreService.getTestCentres(this.testcentreId);
+
+      } else {
+        this.mode = 'manageTestKit';
+        this.testcentreId = null;
+      }
+    });
   }
   // onAddCentre(){
   //    this.enteredCentre;
@@ -30,12 +43,17 @@ constructor(public testcentreService: TestcentreService,public route:ActivatedRo
   //   this.display = !this.display;
 
   // }
-  onAddTestcentre(form: NgForm){
+  onAddTestcentre(form: NgForm) {
     if (form.invalid) {
       return;
     }
-    this.testcentreService.addTestCentre(form.value.centreName);
 
+    if (this.mode === 'rCentre') {
+      this.testcentreService.addTestCentre(form.value.centreName);
+    } else {
+      this.testcentreService.updateTestCentre(this.testcentreId, form.value.centreName);
+      this.router.navigate(['/rCentre']);
+    }
     form.resetForm();
   }
   // onDisplay() {

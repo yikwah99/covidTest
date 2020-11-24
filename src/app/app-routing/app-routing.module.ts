@@ -20,6 +20,7 @@ export const routes: Routes = [
   /*test manager*/
   {path: 'testcentre',  component: TestcentreComponent },
   { path: 'rCentre',  component: TestcentreRegisterComponent },
+  { path: 'edit/:testcentreId',  component: TestcentreRegisterComponent },
   { path: 'manageTestKit',  component: ManageTestkitComponent },
   { path: 'edit/:testkitId',  component: ManageTestkitComponent },
   { path: 'testkitlist',  component:ManageTestkitListComponent},
