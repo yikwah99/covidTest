@@ -31,16 +31,16 @@ export class ManageTestkitComponent implements OnInit {
     });
   }
 
-  onSavePost(form: NgForm){
+  onUpdateTest(form: NgForm){
     if(form.invalid){
       return;
 
     }
 
     if(this.mode === 'manageTestKit'){
-      this.managetestkitservice.addTestkit(form.value.testkitName, form.value.content);
+      this.managetestkitservice.addTestkit(form.value.testkitName, form.value.stock);
     }else{
-      this.managetestkitservice.updateTestkit(this.testkitId, form.value.title, form.value.content);
+      this.managetestkitservice.updateTestkit(this.testkitId, form.value.title, form.value.stock);
     }
     form.resetForm();
   }
