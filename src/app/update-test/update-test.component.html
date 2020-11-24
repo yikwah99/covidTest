@@ -3,181 +3,156 @@
   <h1>Covid-19 New Test</h1>
   <mat-dialog-content>
   <mat-card style="padding:30px 80px">
-    <h2>Covid-19 Test Form</h2>
-    <mat-card-content>
-      <h3>Reporter Information</h3>
-      <div fxlayout="row">
-        <div fxFlex="50" style="margin-right:10px;">
-          <h4>Report Date</h4>
-          <mat-form-field  appearance="fill">
-            <mat-label></mat-label>
-            <input matInput>
-          </mat-form-field>
-          <h4>Tester Name</h4>
-          <mat-form-field appearance="fill">
-            <mat-label>Dr. Dylan Chng</mat-label>
-            <input matInput disabled>
-          </mat-form-field>
-        </div>
+    <form clas="newtestform" (submit)="onAddNewTest(newTestForm)" #newTestForm="ngForm">
+      <h2>Covid-19 Test Form</h2>
+      <mat-card-content>
+        <h3>Reporter Information</h3>
+        <div fxlayout="row">
+          <div fxFlex="50" style="margin-right:10px;">
+            <h4>Report Date</h4>
+            <mat-form-field  appearance="fill">
+              <mat-label></mat-label>
+              <input #testDate="ngModel" ngModel name="testDate" type="date" matInput >
+            </mat-form-field>
+            <h4>Tester Name</h4>
+            <mat-form-field appearance="fill">
+              <mat-label>Dr. Dylan Chng</mat-label>
+              <input matInput disabled>
+            </mat-form-field>
+          </div>
 
-        <div fxFlex="50">
-          <h4>Test Centre</h4>
-          <mat-form-field appearance="fill">
-            <mat-label>Klinik OK Petaling Jaya</mat-label>
-            <input matInput disabled>
-          </mat-form-field>
-          <h4>Phone Number</h4>
-          <mat-form-field appearance="fill">
-            <mat-label>0123336563</mat-label>
-            <input matInput disabled>
-          </mat-form-field>
-        </div>
-
-      </div>
-
-      <mat-divider></mat-divider>
-      <h3>Patient Information</h3>
-      <div fxlayout="row">
-        <div fxFlex="50" style="margin-right:10px;">
-          <h4>Full Name</h4>
-          <mat-form-field appearance="fill">
-            <mat-label>Liew Cai Juan</mat-label>
-            <input matInput disabled>
-          </mat-form-field>
-
-          <h4>Sex</h4>
-          <mat-form-field appearance="fill">
-            <mat-label>Female</mat-label>
-            <input matInput disabled>
-          </mat-form-field>
-
-          <h4>Date of Birth </h4>
-          <mat-form-field appearance="fill">
-            <mat-label>6/6/1999</mat-label>
-            <input matInput disabled>
-          </mat-form-field>
-        </div>
-
-        <div fxFlex="50">
-          <h4>Identity Card Number/Passport Number</h4>
-          <mat-form-field appearance="fill">
-            <mat-label>990606666666</mat-label>
-            <input matInput disabled>
-          </mat-form-field>
-
-          <h4>Age</h4>
-          <mat-form-field appearance="fill">
-            <mat-label>6</mat-label>
-            <input matInput disabled>
-          </mat-form-field>
-
-          <h4>Phone Number</h4>
-          <mat-form-field appearance="fill">
-            <mat-label>0166666666</mat-label>
-            <input matInput disabled>
-          </mat-form-field>
+          <div fxFlex="50">
+            <h4>Test Centre</h4>
+            <mat-form-field appearance="fill">
+              <mat-label>Klinik OK Petaling Jaya</mat-label>
+              <input matInput disabled>
+            </mat-form-field>
+            <h4>Phone Number</h4>
+            <mat-form-field appearance="fill">
+              <mat-label>0123336563</mat-label>
+              <input matInput disabled>
+            </mat-form-field>
+          </div>
 
         </div>
 
-      </div>
+        <mat-divider></mat-divider>
+        <h3>Patient Information</h3>
+        <div fxlayout="row">
+          <div fxFlex="50" style="margin-right:10px;">
+            <h4>Full Name</h4>
+            <mat-form-field appearance="fill">
+              <mat-label>test</mat-label>
+              <input matInput disabled>
+            </mat-form-field>
 
-      <h4>Address</h4>
-      <mat-form-field appearance="fill">
-        <mat-label>01 Jalan Kepong</mat-label>
-        <input matInput disabled>
-      </mat-form-field>
+            <h4>Sex</h4>
+            <mat-form-field appearance="fill">
+              <mat-label>Female</mat-label>
+              <input matInput disabled>
+            </mat-form-field>
 
-      <div fxlayout="row">
-        <div fxFlex="50" style="margin-right:10px;">
+            <h4>Date of Birth </h4>
+            <mat-form-field appearance="fill">
+              <mat-label>6/6/1999</mat-label>
+              <input matInput disabled>
+            </mat-form-field>
+          </div>
 
+          <div fxFlex="50">
+            <h4>Identity Card Number/Passport Number</h4>
+            <mat-form-field appearance="fill">
+              <mat-label>990606666666</mat-label>
+              <input matInput disabled>
+            </mat-form-field>
 
-          <h4>Zip Code</h4>
-          <mat-form-field appearance="fill">
-            <mat-label>47410</mat-label>
-            <input matInput disabled>
-          </mat-form-field>
+            <h4>Age</h4>
+            <mat-form-field appearance="fill">
+              <mat-label>6</mat-label>
+              <input matInput disabled>
+            </mat-form-field>
 
-          <h4>Country</h4>
-          <mat-form-field appearance="fill">
-            <mat-label>Malaysia</mat-label>
-            <input matInput disabled>
-          </mat-form-field>
+            <h4>Phone Number</h4>
+            <mat-form-field appearance="fill">
+              <mat-label>0166666666</mat-label>
+              <input matInput disabled>
+            </mat-form-field>
+
+          </div>
+
         </div>
 
-        <div fxFlex="50">
-
-
-          <h4>City</h4>
-          <mat-form-field appearance="fill">
-            <mat-label>Petaling Jaya</mat-label>
-            <input matInput disabled>
-          </mat-form-field>
-
-          <h4>State</h4>
-          <mat-form-field appearance="fill">
-            <mat-label>Selangor</mat-label>
-            <input matInput disabled>
-          </mat-form-field>
-
-        </div>
-
-      </div>
-
-
-      <mat-divider></mat-divider>
-      <h3>Clinical Information</h3>
-      <div fxlayout="row">
-        <div fxFlex="50" style="margin-right:10px;">
-          <h4>Admit Date</h4>
-          <mat-form-field appearance="fill">
-            <mat-label></mat-label>
-            <input matInput >
-          </mat-form-field>
-          <h4>Hospital</h4>
-          <mat-form-field appearance="fill">
-            <mat-label></mat-label>
-            <input matInput >
-          </mat-form-field>
-        </div>
-        <div fxFlex="50" style="margin-right:10px;">
-          <h4>Date of symptom onset</h4>
-          <mat-form-field appearance="fill">
-            <mat-label></mat-label>
-            <input matInput >
-          </mat-form-field>
-          <h4>Hospitalized? </h4>
-          <mat-form-field appearance="fill">
-            <mat-label></mat-label>
-            <input matInput >
-          </mat-form-field>
-        </div>
-      </div>
-      <h4>Symptoms</h4>
-      <mat-form-field appearance="fill">
-        <mat-label></mat-label>
-        <input matInput>
-      </mat-form-field>
-      <mat-divider></mat-divider>
-      <h3>Test Result</h3>
-      <div>
-        <h4>Covid-19 Test Result</h4>
+        <h4>Address</h4>
         <mat-form-field appearance="fill">
-          <mat-label>Negative</mat-label>
+          <mat-label>01 Jalan Kepong</mat-label>
           <input matInput disabled>
         </mat-form-field>
-        <h4>Test Type</h4>
+
+        <div fxlayout="row">
+          <div fxFlex="50" style="margin-right:10px;">
+
+
+            <h4>Zip Code</h4>
+            <mat-form-field appearance="fill">
+              <mat-label>47410</mat-label>
+              <input matInput disabled>
+            </mat-form-field>
+
+            <h4>Country</h4>
+            <mat-form-field appearance="fill">
+              <mat-label>Malaysia</mat-label>
+              <input matInput disabled>
+            </mat-form-field>
+          </div>
+
+          <div fxFlex="50">
+
+
+            <h4>City</h4>
+            <mat-form-field appearance="fill">
+              <mat-label>Petaling Jaya</mat-label>
+              <input matInput disabled>
+            </mat-form-field>
+
+            <h4>State</h4>
+            <mat-form-field appearance="fill">
+              <mat-label>Selangor</mat-label>
+              <input matInput disabled>
+            </mat-form-field>
+
+          </div>
+
+        </div>
+
+
+        <mat-divider></mat-divider>
+        <h3>Clinical Information</h3>
+        <div fxlayout="row">
+            <h4>Patient Type</h4>
+            <mat-form-field appearance="fill">
+              <mat-select #hospitalized="ngModel" ngModel name="hospitalized" matInput>
+                <mat-option value="returnee">Returnee</mat-option>
+                <mat-option value="quarantined">Quarantined</mat-option>
+                <mat-option value="close contact">Close contact</mat-option>
+                <mat-option value="infect">Infected</mat-option>
+                <mat-option value="suspected">Suspected</mat-option>
+              </mat-select>
+            </mat-form-field>
+        </div>
+        <h4>Symptoms</h4>
         <mat-form-field appearance="fill">
-          <mat-label>Rapid Test and PCR</mat-label>
-          <input matInput disabled>
+          <mat-label></mat-label>
+          <input #symptoms="ngModel" ngModel name="symptoms" matInput >
         </mat-form-field>
-      </div>
-      <div style="margin:auto; width:100%;display: flex;
-    justify-content: center;">
-        <button mat-raised-button color="primary" class="btn-block" type="submit">Save</button>
-        <button mat-raised-button color="warn" class="btn-block" type="cancel">Cancel</button>
-      </div>
-   
-    </mat-card-content>
+        <mat-divider></mat-divider>
+        <div style="margin:auto; width:100%;display: flex;
+      justify-content: center;">
+          <button mat-raised-button color="primary" class="btn-block" type="submit">Save</button>
+          <button mat-raised-button color="warn" class="btn-block" type="cancel">Cancel</button>
+        </div>
+
+      </mat-card-content>
+    </form>
   </mat-card>
 
 </mat-dialog-content>

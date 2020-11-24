@@ -82,8 +82,8 @@
 
    <ng-container matColumnDef="action">
     <th mat-header-cell *matHeaderCellDef> Actions</th>
-    <td mat-cell *matCellDef="let row">
-      <button mat-icon-button (click)="onViewPatient(row)"> <mat-icon>edit</mat-icon></button>
+    <td mat-cell *matCellDef="let patient">
+      <button mat-icon-button [routerLink]= "['/newTest', patient.username]"> <mat-icon>edit</mat-icon></button>
     </td>
   </ng-container>
   

@@ -1,8 +1,7 @@
-import { AfterViewInit, Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import {Patient} from '../patient.model';
 import { MatTableDataSource } from '@angular/material/table';
 import {PatientService} from '../record-patient.service';
-import {MatDialog, MatDialogConfig, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
 import { UpdateTestComponent } from '../update-test/update-test.component';
 @Component({
@@ -16,7 +15,7 @@ export class PatientListComponent implements OnInit, OnDestroy {
   displayedColumns: string[] =[    'username','password','fullName','idNo','sex','age','birthday','phoneNo','address','zip','city','country','state','action'];
   private patientSub:Subscription;
 
-  constructor(public patientService: PatientService, private dialog:MatDialog) { }
+  constructor(public patientService: PatientService) { }
 
   ngOnInit(){
     this.patientService.getPatients();
@@ -24,19 +23,12 @@ export class PatientListComponent implements OnInit, OnDestroy {
     .subscribe((patients:Patient[])=>{
       this.patients =patients;
     });
+    console.log(this.patients);
     
   }
   ngOnDestroy(){
     this.patientSub.unsubscribe();
   }
   
-  onViewPatient(){
-    const dialogConfig = new MatDialogConfig();
-    this.dialog.open(UpdateTestComponent,dialogConfig);
-    dialogConfig.disableClose = true;
-    dialogConfig.autoFocus = true;
-    dialogConfig.width = "60%";
-    dialogConfig.maxHeight= '300vh';
-  }
 
 }

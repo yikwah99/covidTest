@@ -28,6 +28,7 @@ export const routes: Routes = [
   /*tester/patient*/
   { path: 'recordTest',  component: RecordTestComponent },
   { path: 'updateTest',  component: UpdateTestComponent },
+  { path: 'newTest/:username',  component: UpdateTestComponent },
   { path: 'viewTest',  component: ViewTestComponent },
   { path: 'homepage',  component: HomepageComponent },
   { path: '', redirectTo: '/homepage', pathMatch: 'full' }
