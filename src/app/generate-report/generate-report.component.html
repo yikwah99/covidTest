@@ -22,7 +22,7 @@ fxLayoutGap.xs="0">
   <table class="mat-elevation-z8" mat-table [dataSource]="dataSource"  matSort>
     <ng-container matColumnDef="testID">
       <mat-header-cell *matHeaderCellDef  mat-sort-header>Test ID </mat-header-cell>
-      <mat-cell *matCellDef="let element">{{element.testID}}</mat-cell>
+      <mat-cell *matCellDef="let element">{{element.id}}</mat-cell>
     </ng-container>
     <ng-container matColumnDef="result">
       <mat-header-cell *matHeaderCellDef  mat-sort-header>Result</mat-header-cell>
@@ -36,10 +36,15 @@ fxLayoutGap.xs="0">
       <mat-header-cell *matHeaderCellDef mat-sort-header>Status</mat-header-cell>
       <mat-cell *matCellDef="let element">{{element.status}}</mat-cell>
     </ng-container>
-    <ng-container matColumnDef="tester">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Tester</mat-header-cell>
-      <mat-cell *matCellDef="let element">{{element.tester}}</mat-cell>
+    <ng-container matColumnDef="testDate">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Patient</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{element.username}}</mat-cell>
     </ng-container>
+    <ng-container matColumnDef="username">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Test Date</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{element.testDate}}</mat-cell>
+    </ng-container>
+    
     <ng-container matColumnDef="action">
       <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
       <mat-cell *matCellDef="let element" >
@@ -48,9 +53,6 @@ fxLayoutGap.xs="0">
           <span *ngIf="element.status === 'Completed'">View</span>
           <span *ngIf="element.status === 'Pending'">Update</span>
           
-          <mat-icon style="padding:0;">
-            launch
-          </mat-icon>
         </button>
       </mat-dialog-actions>
       </mat-cell>

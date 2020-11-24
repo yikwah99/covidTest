@@ -22,7 +22,7 @@ export class GenerateReportComponent implements OnInit, OnDestroy {
   
   private testSub:Subscription;
 
-  displayedColumns: string[] = ['testID', 'result', 'resultDate', 'status','tester','action'];
+  displayedColumns: string[] = ['testID', 'result', 'resultDate', 'status','testDate','username','action'];
   
   dataSource = new MatTableDataSource(this.tests);
   
@@ -35,8 +35,11 @@ export class GenerateReportComponent implements OnInit, OnDestroy {
     this.testSub = this.recordTestService.getTestUpdateListener()
     .subscribe((tests: Test[])=>{
       this.tests = tests;
+      console.log(tests);
+      this.dataSource.data = tests;
     })
-    this.dataSource.data = this.tests;
+    //this.dataSource.data = this.tests;
+    
   }
   onSearchClear() {
     this.searchKey = "";
