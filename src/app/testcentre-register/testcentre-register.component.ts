@@ -14,9 +14,12 @@ export class TestcentreRegisterComponent implements OnInit {
 //   @Input() enteredCentre;
 //  @Output() addCentre= new EventEmitter();
 
-constructor(public testcentreService: TestcentreService) { }
+constructor(public testcentreService: TestcentreService,public route:ActivatedRoute) { }
   display = false;
 
+  testcentre: Testcentre;
+
+ private testcentreId:string;
   ngOnInit(): void {
   }
   // onAddCentre(){

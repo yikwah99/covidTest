@@ -11,6 +11,7 @@ const Testkit =require('./models/testkit');
 const Patient =require('./models/patient');
 const Test =require('./models/test');
 const TestCentre =require('./models/testcentre');
+const Officer = require('./models/officer');
 
 mongoose.connect("mongodb+srv://max:OklBMmpdxA436z7K@cluster0.awk8b.mongodb.net/covidTest?retryWrites=true&w=majority", { useNewUrlParser: true })
 .then(()=>{
@@ -160,24 +161,48 @@ app.put('/api/testkits/:id', (req,res,next)=>{
 //centre//
 app.post("/api/testcentres",(req,res,next)=>{
 
-  const centre = new Centre({
-    centretName: req.body.centreName,
+  const centre = new TestCentre({
+    centreName: req.body.centreName,
   });
-  centre.save().then(createdCentre =>{
-    console.log(centre)
-    res.status(200).json({
-      message:'Centre added successfully',
-      centreId: createdCentre._id
-    });
-  });
-  // console.log(testkit);
-  // res.status(201).json({
-  //   message:"Added"
-  // })
+  // centre.save().then(createdCentre =>{
+  //   console.log(centre)
+  //   res.status(200).json({
+  //     message:'Centre added successfully',
+  //     centreId: createdCentre._id
+  //   });
+  // });
+  console.log(centre);
+  res.status(201).json({
+    message:"Added"
+  })
   });
 
 
 //centre//
+//officer//
+app.post("/api/officers",(req,res,next)=>{
+
+  const officer = new Officer({
+    centreName: req.body.centreName,
+    position:req.body.position,
+    fullname:req.body.fullname,
+    username:req.body.username,
+    password:req.body.password
+  });
+  // centre.save().then(createdCentre =>{
+  //   console.log(centre)
+  //   res.status(200).json({
+  //     message:'Centre added successfully',
+  //     centreId: createdCentre._id
+  //   });
+  // });
+  console.log(officer );
+  res.status(201).json({
+    message:"Added"
+  })
+  });
+
+//officer//
 
 //signup
 

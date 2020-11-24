@@ -51,7 +51,7 @@ export class TestcentreService {
       //console.log(responseData.message);
       this.testcentres.push(testcentre);
       this.centreUpdated.next([...this.testcentres]);
-      this.rounter.navigate(['/']);
+      //this.rounter.navigate(['/']);
       });
 
   }
