@@ -19,13 +19,9 @@ export class ManagetestkitService {
   }
 
   updateTestkit(id: string, testkitName: string, stock: number){
-    const testkit: Testkit ={
-      id: id,
-      testkitName: testkitName,
-      stock:stock
-    }
-    this.http.put('http://localhost:3000/api/testkits/' + id, testkit)
-    .subscribe(response => console.log(response));
+    const testkit: Testkit ={ id: id, testkitName:testkitName, stock:stock};
+    this.http.put('http://localhost:3000/api/testkits/'+id,testkit)
+    .subscribe(response =>console.log(response));
   }
 
   getTestKit(){

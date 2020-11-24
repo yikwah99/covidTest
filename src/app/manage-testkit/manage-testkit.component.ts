@@ -3,6 +3,8 @@ import { NgForm } from '@angular/forms';
 import{ManagetestkitService} from '../managetestkit.service';
 import {Testkit} from '../testkit.model';
 import {ActivatedRoute, ParamMap} from '@angular/router';
+import {Router} from '@angular/router';
+
 
 @Component({
   selector: 'app-manage-testkit',
@@ -15,7 +17,7 @@ export class ManageTestkitComponent implements OnInit {
   private mode ="manageTestKit";
   private testkitId: string;
 
-  constructor(public managetestkitservice: ManagetestkitService, public route: ActivatedRoute) { }
+  constructor(public managetestkitservice: ManagetestkitService, public route: ActivatedRoute,  private router:Router) { }
 
   ngOnInit(){
     this.route.paramMap.subscribe((paramMap:ParamMap)=>{
@@ -34,26 +36,26 @@ export class ManageTestkitComponent implements OnInit {
   onUpdateTest(form: NgForm){
     if(form.invalid){
       return;
-
     }
 
     if(this.mode === 'manageTestKit'){
-      this.managetestkitservice.addTestkit(form.value.testkitName, form.value.stock);
+      this.managetestkitservice.addTestkit(form.value.testkitName,form.value.stock);
     }else{
-      this.managetestkitservice.updateTestkit(this.testkitId, form.value.title, form.value.stock);
+      this.managetestkitservice.updateTestkit(this.testkitId, form.value.testkitName,form.value.stock);
+      this.router.navigate(['/manageTestKit']);
     }
     form.resetForm();
   }
 
-  onAddTestkit(form: NgForm){
-    if(form.invalid){
-      return;
-    }else{
-      console.log("Form Submitted!",form.value.testkitName,form.value.stock);
+  // onAddTestkit(form: NgForm){
+  //   if(form.invalid){
+  //     return;
+  //   }else{
+  //     console.log("Form Submitted!",form.value.testkitName,form.value.stock);
 
-    }
-    this.managetestkitservice.addTestkit(form.value.testkitName,form.value.stock);
-    form.resetForm();
-  }
+  //   }
+  //   this.managetestkitservice.addTestkit(form.value.testkitName,form.value.stock);
+  //   form.resetForm();
+  // }
 
 }

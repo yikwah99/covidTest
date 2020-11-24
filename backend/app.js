@@ -109,12 +109,18 @@ app.put('/api/testkits/:id', (req,res,next)=>{
     _id:req.body.id,
     testkitName: req.body.testkitName,
     stock: req.body.stock
-  })
+  });
   Testkit.updateOne({_id: req.params.id}, testkit).then(result =>{
+    if(result){
     console.log(result);
-    res.status(200).json({message:"Updated"});
+    res.status(200).json({message:"Updated Sucessfully"});
+    }else{
+      alert("Help");
+    }
   });
 });
+
+
 //end of testkit//
 
 
