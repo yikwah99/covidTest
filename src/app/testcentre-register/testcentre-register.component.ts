@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TestcentreService } from '../testcentre.service';
@@ -12,25 +12,25 @@ import { Testcentre } from '../testcentre.model';
   styleUrls: ['./testcentre-register.component.css']
 })
 export class TestcentreRegisterComponent implements OnInit {
-  //   @Input() enteredCentre;
-  //  @Output() addCentre= new EventEmitter();
 
-
-constructor(public testcentreService: TestcentreService, public route: ActivatedRoute, private router: Router) { }
   testcentre: Testcentre;
   private mode = "rCentre";
   display = false;
   private testcentreId: string;
+
+
+constructor(public testcentreService: TestcentreService, public route: ActivatedRoute, private router: Router) { }
+
 
   ngOnInit() {
     this.route.paramMap.subscribe((paramMap: ParamMap) => {
       if (paramMap.has('testcentreId')) {
         this.mode = "edit";
         this.testcentreId = paramMap.get('testcentreId');
-       // this.testcentre = this.testcentreService.getTestCentres(this.testcentreId);
+        this.testcentre = this.testcentreService.getTc(this.testcentreId);
 
       } else {
-        this.mode = 'manageTestKit';
+        this.mode = 'rCentre';
         this.testcentreId = null;
       }
     });

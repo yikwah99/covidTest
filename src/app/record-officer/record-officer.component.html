@@ -12,10 +12,11 @@ fxLayoutGap.xs="0">
     <form class="registerform" (submit)= "onAddOfficer (officerForm)" #officerForm="ngForm" >
       <mat-card-content>
         <div class="item item-1" fxFlex="50%" fxLayoutGap="30px">
-        <mat-form-field class="input-field">
+        <!-- <mat-form-field class="input-field">
           <mat-label>Tester Centre Name</mat-label>
-          <input matInput readonly name="centreName" value="Centrename">
-        </mat-form-field>
+          <!--<input matInput readonly name="centreName" value="Centrename">
+          <input matInput name="fullname" ngModel required minlength="5" #fullname="ngModel" placeholder="Full Name">
+        </mat-form-field> -->
         <mat-form-field class="input-field">
           <mat-label>Position</mat-label>
           <input matInput readonly name="position" value="Tester">
