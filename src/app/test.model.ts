@@ -1,4 +1,5 @@
 export class Test{
+  id: string;
   username: string;
   testDate: string;
   status: string;

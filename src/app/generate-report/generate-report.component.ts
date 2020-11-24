@@ -1,49 +1,42 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
 import {formatDate} from '@angular/common';
 import {MatSort} from '@angular/material/sort';
 import { ViewTestComponent } from '../view-test/view-test.component';
 import { UpdateTestResultComponent } from '../update-test-result/update-test-result.component';
 import { MatTableDataSource } from '@angular/material/table';
 import {MatDialog, MatDialogConfig, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-export interface TestReport {
-  testID: string;
-  result: string;
-  resultDate: Date;
-  status: string;
-  tester: string;
-  patientType: string;
-}
-
-const ELEMENT_DATA: TestReport[] = [
-  {testID: 'TA001', result: 'Positive',  resultDate: new Date(2020, 8, 1), status: 'Completed',tester:"Abu", patientType:'Returnee'},
-  {testID: 'TA002', result: 'Positive',  resultDate: new Date(2020, 9, 2), status: 'Completed',tester:"Marcus",patientType:'Returnee'},
-  {testID: 'TA003', result: 'Negative',  resultDate: new Date(2020, 9, 3), status: 'Completed',tester:"Jack",patientType:'Returnee'},
-  {testID: 'TA004', result: '-',  resultDate: null, status: 'Pending',tester:"Mia",patientType:'Returnee'},
-  
-  {testID: 'TA005', result: '-',  resultDate: null, status: 'Pending',tester:"Mia",patientType:'Returnee'},
-  {testID: 'TA006', result: '-',  resultDate: null, status: 'Pending',tester:"Mona",patientType:'Returnee'},
-  {testID: 'TA007', result: '-',  resultDate: null, status: 'Pending',tester:"Chong",patientType:'Returnee'},
-  {testID: 'TA008', result: '-',  resultDate: null, status: 'Pending',tester:"Mia",patientType:'Returnee'},
-
-
-
-];
+import {RecordTestService} from '../record-test.service';
+import {Test} from '../test.model';
+import {ActivatedRoute, ParamMap} from '@angular/router';
 //formatDate(new Date(), 'dd/MM/yyyy', 'en');
+
 @Component({
   selector: 'app-generate-report',
   templateUrl: './generate-report.component.html',
   styleUrls: ['./generate-report.component.css']
 })
 
-export class GenerateReportComponent implements OnInit {
+export class GenerateReportComponent implements OnInit, OnDestroy {
+  tests: Test[]=[];
+  
+  private testSub:Subscription;
 
   displayedColumns: string[] = ['testID', 'result', 'resultDate', 'status','tester','action'];
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
-  constructor(private dialog:MatDialog) {
+  
+  dataSource = new MatTableDataSource(this.tests);
+  
+  constructor(public recordTestService: RecordTestService, private dialog:MatDialog) {
 
   }
   searchKey: string;
-  ngOnInit(): void {
+  ngOnInit(){
+    this.recordTestService.getTests();
+    this.testSub = this.recordTestService.getTestUpdateListener()
+    .subscribe((tests: Test[])=>{
+      this.tests = tests;
+    })
+    this.dataSource.data = this.tests;
   }
   onSearchClear() {
     this.searchKey = "";
@@ -70,5 +63,8 @@ export class GenerateReportComponent implements OnInit {
     dialogConfig.width = "60%";
     dialogConfig.maxHeight= '300vh';
 
+  }
+  ngOnDestroy(){
+    this.testSub.unsubscribe();
   }
 }

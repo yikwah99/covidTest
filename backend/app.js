@@ -41,10 +41,10 @@ app.post("/api/tests",(req,res,next)=>{
   resultDate: req.body.resultDate
   });
   test.save().then(createdTest =>{
-    console.log(patient)
     res.status(200).json({
-      message:'Test added successfully'
-    })
+      message:'Test added successfully',
+      testID: createdTest._id
+    });
   })
   res.status(201).json({
     message:"Added"
@@ -52,13 +52,14 @@ app.post("/api/tests",(req,res,next)=>{
 });
 
 app.get('/api/tests',(req, res, next)=>{
-  Test.find().then(documents =>{
+  Test.find().then(tests =>{
     res.status(200).json({
-      message:'Fetched',
-      tests: documents
+      message:'Tests fetched successfully',
+      tests: tests
     });
   })
 });
+
 //end of test
 
 //patient
