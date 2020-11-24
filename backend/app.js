@@ -79,8 +79,8 @@ testkit.save().then(createdTestkit =>{
   res.status(200).json({
     message:'Testkit added successfully',
     testkitId: createdTestkit._id
-  })
-})
+  });
+});
 // console.log(testkit);
 // res.status(201).json({
 //   message:"Added"
@@ -112,9 +112,9 @@ app.put('/api/testkits/:id', (req,res,next)=>{
   })
   Testkit.updateOne({_id: req.params.id}, testkit).then(result =>{
     console.log(result);
-    res.status(200).json({message:"Updated"})
-  })
-})
+    res.status(200).json({message:"Updated"});
+  });
+});
 //end of testkit//
 
 

@@ -12,7 +12,7 @@ import {ActivatedRoute, ParamMap} from '@angular/router';
 export class ManageTestkitComponent implements OnInit {
 
   testkit: Testkit;
-  private mode ="create";
+  private mode ="manageTestKit";
   private testkitId: string;
 
   constructor(public managetestkitservice: ManagetestkitService, public route: ActivatedRoute) { }
@@ -25,7 +25,7 @@ export class ManageTestkitComponent implements OnInit {
       this.testkit = this.managetestkitservice.getTest(this.testkitId);
 
       }else{
-        this.mode ='create';
+        this.mode ='manageTestKit';
         this.testkitId = null;
       }
     });
@@ -37,7 +37,7 @@ export class ManageTestkitComponent implements OnInit {
 
     }
 
-    if(this.mode === 'create'){
+    if(this.mode === 'manageTestKit'){
       this.managetestkitservice.addTestkit(form.value.testkitName, form.value.content);
     }else{
       this.managetestkitservice.updateTestkit(this.testkitId, form.value.title, form.value.content);

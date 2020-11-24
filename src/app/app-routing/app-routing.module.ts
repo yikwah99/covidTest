@@ -12,7 +12,7 @@ import { ViewTestComponent } from '../view-test/view-test.component';
 import { RecordOfficerComponent } from '../record-officer/record-officer.component';
 import { GenerateReportComponent } from '../generate-report/generate-report.component';
 import { HomepageComponent } from '../homepage/homepage.component';
-
+import{ManageTestkitListComponent} from '../manage-testkit-list/manage-testkit-list.component'
 export const routes: Routes = [
   { path: 'register',     component: UserRegisterComponent },
   { path: 'login',     component: LoginComponent },
@@ -22,6 +22,7 @@ export const routes: Routes = [
   { path: 'rCentre',  component: TestcentreRegisterComponent },
   { path: 'manageTestKit',  component: ManageTestkitComponent },
   { path: 'edit/:testkitId',  component: ManageTestkitComponent },
+  { path: 'testkitlist',  component:ManageTestkitListComponent},
   {path:'recordOfficer', component: RecordOfficerComponent},
   {path:'generateReport', component: GenerateReportComponent },
   /*tester/patient*/
