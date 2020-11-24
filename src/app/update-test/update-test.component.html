@@ -27,34 +27,29 @@
               <mat-label>Klinik OK Petaling Jaya</mat-label>
               <input matInput disabled>
             </mat-form-field>
-            <h4>Phone Number</h4>
-            <mat-form-field appearance="fill">
-              <mat-label>0123336563</mat-label>
-              <input matInput disabled>
-            </mat-form-field>
           </div>
 
         </div>
-
+  
         <mat-divider></mat-divider>
         <h3>Patient Information</h3>
         <div fxlayout="row">
           <div fxFlex="50" style="margin-right:10px;">
             <h4>Full Name</h4>
             <mat-form-field appearance="fill">
-              <mat-label>test</mat-label>
+              <mat-label>{{ patient.fullName }}</mat-label>
               <input matInput disabled>
             </mat-form-field>
 
-            <h4>Sex</h4>
+            <h4>Gender</h4>
             <mat-form-field appearance="fill">
-              <mat-label>Female</mat-label>
+              <mat-label>{{ patient.sex }}</mat-label>
               <input matInput disabled>
             </mat-form-field>
 
             <h4>Date of Birth </h4>
             <mat-form-field appearance="fill">
-              <mat-label>6/6/1999</mat-label>
+              <mat-label>{{ patient.birthday }}</mat-label>
               <input matInput disabled>
             </mat-form-field>
           </div>
@@ -62,19 +57,19 @@
           <div fxFlex="50">
             <h4>Identity Card Number/Passport Number</h4>
             <mat-form-field appearance="fill">
-              <mat-label>990606666666</mat-label>
+              <mat-label>{{ patient.idNo }}</mat-label>
               <input matInput disabled>
             </mat-form-field>
 
             <h4>Age</h4>
             <mat-form-field appearance="fill">
-              <mat-label>6</mat-label>
+              <mat-label>{{ patient.age }}</mat-label>
               <input matInput disabled>
             </mat-form-field>
 
             <h4>Phone Number</h4>
             <mat-form-field appearance="fill">
-              <mat-label>0166666666</mat-label>
+              <mat-label>{{ patient.phoneNo }}</mat-label>
               <input matInput disabled>
             </mat-form-field>
 
@@ -84,7 +79,7 @@
 
         <h4>Address</h4>
         <mat-form-field appearance="fill">
-          <mat-label>01 Jalan Kepong</mat-label>
+          <mat-label>{{ patient.address }}</mat-label>
           <input matInput disabled>
         </mat-form-field>
 
@@ -94,13 +89,13 @@
 
             <h4>Zip Code</h4>
             <mat-form-field appearance="fill">
-              <mat-label>47410</mat-label>
+              <mat-label>{{ patient.zip }}</mat-label>
               <input matInput disabled>
             </mat-form-field>
 
             <h4>Country</h4>
             <mat-form-field appearance="fill">
-              <mat-label>Malaysia</mat-label>
+              <mat-label>{{ patient.country }}</mat-label>
               <input matInput disabled>
             </mat-form-field>
           </div>
@@ -110,13 +105,13 @@
 
             <h4>City</h4>
             <mat-form-field appearance="fill">
-              <mat-label>Petaling Jaya</mat-label>
+              <mat-label>{{ patient.city }}</mat-label>
               <input matInput disabled>
             </mat-form-field>
 
             <h4>State</h4>
             <mat-form-field appearance="fill">
-              <mat-label>Selangor</mat-label>
+              <mat-label>{{ patient.state }}</mat-label>
               <input matInput disabled>
             </mat-form-field>
 

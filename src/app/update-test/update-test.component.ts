@@ -23,9 +23,8 @@ export class UpdateTestComponent implements OnInit{
         this.username= paramMap.get('username');
         this.patient = this.patientService.getPatient(this.username);
       }
-      
     });
-    
+    console.log(this.patient);
   }
   
   onAddNewTest(form: NgForm){
