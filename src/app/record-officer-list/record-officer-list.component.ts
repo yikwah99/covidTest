@@ -15,7 +15,7 @@ export class RecordOfficerListComponent implements OnInit {
   displayedColumns: string[] = ['userID','testcentre','position', 'username', 'password', 'fullname','action'];
   officers: Officer[] = [];
   private officerSub:Subscription;
-  dataSource = new MatTableDataSource(this.officers);
+  dataSource: MatTableDataSource<Officer>;
 
   //dataSource = this.officers;
   //dataSource = ELEMENT_DATA;
@@ -35,5 +35,9 @@ export class RecordOfficerListComponent implements OnInit {
   })
 
   }
+  onDelete(officerId: string){
+    this.recordofficerservice.deleteOfficer(officerId);
+  }
+
 
 }

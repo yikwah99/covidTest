@@ -35,6 +35,10 @@ export class AuthService{
       this.token = token;
       this.authStatusListener.next(true);
      // this.router.navigate(['dashboard']);
+
+     if (username=="manager001"){
+       this.router.navigate(['/testcentre']);
+     }
     });
   }
   logout(){

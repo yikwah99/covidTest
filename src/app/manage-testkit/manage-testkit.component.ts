@@ -22,7 +22,7 @@ export class ManageTestkitComponent implements OnInit {
   ngOnInit(){
     this.route.paramMap.subscribe((paramMap:ParamMap)=>{
       if(paramMap.has('testkitId')){
-      this.mode ="edit";
+      this.mode ="editKit";
       this.testkitId= paramMap.get('testkitId');
       this.testkit = this.managetestkitservice.getTest(this.testkitId);
 

@@ -16,6 +16,17 @@ export class RecordOfficerService {
   private officers: Officer[] = [];
   private officerUpdated = new Subject<Officer[]>();
 
+
+  getOfficer(id: string){
+    return{...this.officers.find (t => t.id === id)};
+  }
+
+  updateOfficer(id: string, centreName:string, username:string,fullname: string, position:"Tester",password: string){
+    const officer: Officer ={ id: id, centreName:centreName,username:username,fullname:fullname, position:position, password:password};
+    this.http.put('http://localhost:3000/api/officers/'+id,officer)
+    .subscribe(response =>console.log(response));
+  }
+
   getOfficers(){
     this.http.get<{message: string, officers: any}>('http://localhost:3000/api/officers')
    .pipe(map((officerData)=>{
@@ -53,6 +64,16 @@ export class RecordOfficerService {
       //this.rounter.navigate(['/']);
       });
 
+  }
+
+  deleteOfficer(officerId: string){
+    this.http.delete('http://localhost:3000/api/officers/'+ officerId)
+    .subscribe(()=>{
+     console.log('Deleted');
+    const updatedOfficer = this.officers.filter(officer => officer.id !== officerId)
+    this.officers = updatedOfficer,
+    this.officerUpdated.next([...this.officers]);
+    });
   }
 
 }

@@ -13,28 +13,28 @@ fxLayoutGap.xs="0">
       <mat-card-content>
         <div class="item item-1" fxFlex="50%" fxLayoutGap="30px">
          <mat-form-field class="input-field"  *ngFor="let name of testcentres" >
-          <mat-label>Tester Centre Name</mat-label>
-          <input matInput readonly name="centreName" value= "{{name.centreName}}">
+          <mat-label>Test centre</mat-label>
+          <input matInput name="centreName" [(ngModel)]="name.centreName"   #centreName="ngModel">
         <!--  <input matInput name="fullname" ngModel required minlength="5" #fullname="ngModel" placeholder="Full Name">-->
         </mat-form-field>
         <mat-form-field class="input-field">
-          <mat-label>Position</mat-label>
-          <input matInput readonly name="position" value="Tester">
+          <mat-label>Tester</mat-label>
+          <input matInput  name="position"ngModel readonly #position="ngModel" value="Tester">
         </mat-form-field>
       </div>
       <div class="item item-2" fxFlex="50%" >
         <mat-form-field class="input-field">
-          <input matInput name="fullname" ngModel required minlength="5" #fullname="ngModel" placeholder="Full Name">
+          <input matInput name="fullname" ngModel required minlength="5" [ngModel]= "officer?.fullname"  [ngModel]= "officer?.fullname" #fullname="ngModel" placeholder="Full Name">
           <mat-error *ngIf= "fullname.invalid"> Please enter a valid fullname</mat-error>
         </mat-form-field>
 
         <mat-form-field class="input-field">
-          <input matInput name="username" ngModel required minlength="5" #username="ngModel" placeholder="Username">
+          <input matInput name="username" ngModel required minlength="5" #username="ngModel" [ngModel]= "officer?.username"  placeholder="Username">
           <mat-error *ngIf= "username.invalid"> Please enter a username</mat-error>
         </mat-form-field>
 
         <mat-form-field class="input-field">
-          <input matInput name="password" type="password" placeholder="Password" ngModel required minlength="6" #password="ngModel">
+          <input matInput name="password" type="password" placeholder="Password" ngModel required minlength="6"  [ngModel]= "officer?.password"  #password="ngModel">
           <mat-error *ngIf= "password.invalid"> Please enter a password</mat-error>
         </mat-form-field>
         </div>

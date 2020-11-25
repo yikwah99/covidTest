@@ -238,6 +238,26 @@ app.post("/api/testcentres",(req,res,next)=>{
 //centre//
 //officer//
 app.post("/api/officers",(req,res,next)=>{
+  // bcrypt.hash(req.body.password,10)
+  // .then(hash =>{
+  //   const user = new User({
+  //     username: req.body.username,
+  //     password: hash
+
+  //   });
+  //   user.save() //save data to database
+  //   .then(result =>{
+  //     res.status(201).json({
+  //       message: 'User created', //response after saving
+  //       result:result
+  //     });
+  //   })
+  //   .catch(err =>{
+  //     res.status(500).json({
+  //       error:err
+  //     });
+  //   });
+  // });
 
   const officer = new Officer({
     centreName: req.body.centreName,
@@ -246,6 +266,8 @@ app.post("/api/officers",(req,res,next)=>{
     username:req.body.username,
     password:req.body.password
   });
+
+
   officer.save().then(createdOfficer =>{
     console.log(officer)
     res.status(200).json({
@@ -260,28 +282,27 @@ app.post("/api/officers",(req,res,next)=>{
   });
 
 app.get('/api/officers',(req, res, next)=>{
-    Test.find().then(tests =>{
+    Officer.find().then(tests =>{
       res.status(200).json({
         message:'Fetched',
-        officers: documents
+        officers: tests
       });
     })
   });
 
-  /*
-  app.put('/api/tests/:id', (req,res,next)=>{
-    const test = new Test({
+
+  app.put('/api/officers/:id', (req,res,next)=>{
+    const officer = new Officer({
       _id:req.body.id,
       username:req.body.username,
-      testDate:req.body.testDate,
-      status:req.body.status,
-      result:req.body.result,
-      resultDate:req.body.resultDate,
-      symptoms: req.body.symptoms,
-      patientType: req.body.patientType
+      fullname:req.body.fullname,
+      password:req.body.password,
+      centreName:req.body.centreName,
+      position:req.body.position,
+
     });
-    console.log(test);
-    Test.updateOne({_id: req.params.id}, test).then(result =>{
+    console.log(officer);
+    Officer.updateOne({_id: req.params.id}, officer).then(result =>{
       if(result){
       console.log(result);
       res.status(200).json({message:"Updated Sucessfully"});
@@ -291,14 +312,14 @@ app.get('/api/officers',(req, res, next)=>{
     });
   });
 
-  app.delete('/api/tests/:id', (req,res,next)=>{
-    Test.deleteOne({_id: req.params.id}).then(result =>{
+  app.delete('/api/officers/:id', (req,res,next)=>{
+    Officer.deleteOne({_id: req.params.id}).then(result =>{
       console.log(result);
       res.status(200).json({message:"Deleted"});
     })
   })
 
-*/
+
 //officer//
 
 

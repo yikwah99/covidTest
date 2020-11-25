@@ -22,9 +22,10 @@ export const routes: Routes = [
   { path: 'rCentre',  component: TestcentreRegisterComponent },
   { path: 'edit/:testcentreId',  component: TestcentreRegisterComponent },
   { path: 'manageTestKit',  component: ManageTestkitComponent },
-  { path: 'edit/:testkitId',  component: ManageTestkitComponent },
+  { path: 'editKit/:testkitId',  component: ManageTestkitComponent },
   { path: 'testkitlist',  component:ManageTestkitListComponent},
   {path:'recordOfficer', component: RecordOfficerComponent},
+  { path: 'editOff/:officerId',  component: RecordOfficerComponent},
   {path:'generateReport', component: GenerateReportComponent },
   /*tester/patient*/
   { path: 'recordTest',  component: RecordTestComponent },
