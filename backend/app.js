@@ -147,10 +147,7 @@ testkit.save().then(createdTestkit =>{
     testkitId: createdTestkit._id
   });
 });
-// console.log(testkit);
-// res.status(201).json({
-//   message:"Added"
-// })
+
 });
 
 app.get('/api/testkits',(req, res, next)=>{
@@ -212,11 +209,6 @@ app.post("/api/testcentres",(req,res,next)=>{
       centreId: createdCentre._id
     });
   });
-  // centre.save();
-  // console.log(centre);
-  // res.status(201).json({
-  //   message:"Added"
- // })
   });
 
   app.put('/api/testcentres/:id', (req,res,next)=>{
@@ -238,33 +230,13 @@ app.post("/api/testcentres",(req,res,next)=>{
 //centre//
 //officer//
 app.post("/api/officers",(req,res,next)=>{
-  // bcrypt.hash(req.body.password,10)
-  // .then(hash =>{
-  //   const user = new User({
-  //     username: req.body.username,
-  //     password: hash
-
-  //   });
-  //   user.save() //save data to database
-  //   .then(result =>{
-  //     res.status(201).json({
-  //       message: 'User created', //response after saving
-  //       result:result
-  //     });
-  //   })
-  //   .catch(err =>{
-  //     res.status(500).json({
-  //       error:err
-  //     });
-  //   });
-  // });
 
   const officer = new Officer({
     centreName: req.body.centreName,
     position:req.body.position,
     fullname:req.body.fullname,
+    password:req.body.password,
     username:req.body.username,
-    password:req.body.password
   });
 
 
@@ -275,10 +247,6 @@ app.post("/api/officers",(req,res,next)=>{
       officerId: createdOfficer._id
     });
   });
-  // console.log(officer );
-  // res.status(201).json({
-  //   message:"Added"
-  // })
   });
 
 app.get('/api/officers',(req, res, next)=>{
@@ -289,8 +257,6 @@ app.get('/api/officers',(req, res, next)=>{
       });
     })
   });
-
-
   app.put('/api/officers/:id', (req,res,next)=>{
     const officer = new Officer({
       _id:req.body.id,

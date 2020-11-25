@@ -64,9 +64,9 @@ export class RecordOfficerComponent implements OnInit {
   }
 
   if(this.mode === 'recordOfficer'){
-    this.recordofficerservice.addOfficer(form.value.centreName,form.value.username,form.value.password,form.value.fullname,"Tester");
+    this.recordofficerservice.addOfficer(form.value.centreName,"Tester",form.value.fullname,form.value.username,form.value.password);
   }else{
-    this.recordofficerservice.updateOfficer(this.officerId, form.value.centreName,form.value.username,form.value.password,form.value.fullname,"Tester");
+    this.recordofficerservice.updateOfficer(this.officerId, form.value.centreName,"Tester",form.value.fullname,form.value.username,form.value.password);
     this.router.navigate(['/recordOfficer']);
   }
   form.resetForm();

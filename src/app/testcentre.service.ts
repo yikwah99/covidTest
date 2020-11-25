@@ -14,7 +14,6 @@ export class TestcentreService {
   private centreUpdated = new Subject<Testcentre[]>();
   constructor(private http: HttpClient, private rounter: Router) { }
 
-
   getTc(id:string){
     return{...this.testcentres.find (t => t.id === id)};
   }
@@ -34,7 +33,6 @@ export class TestcentreService {
         this.testcentres = transformedTestcentres;
         this.centreUpdated.next([...this.testcentres]);
       })
-
   }
 
   updateTestCentre(id: string, centreName:string){

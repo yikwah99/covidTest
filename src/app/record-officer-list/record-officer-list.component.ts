@@ -12,32 +12,21 @@ import { TestcentreService } from '../testcentre.service';
   styleUrls: ['./record-officer-list.component.css']
 })
 export class RecordOfficerListComponent implements OnInit {
-  displayedColumns: string[] = ['userID','testcentre','position', 'username', 'password', 'fullname','action'];
+  displayedColumns: string[] = ['userID','testcentre','fullname', 'username', 'position', 'password','action'];
   officers: Officer[] = [];
   private officerSub:Subscription;
   dataSource: MatTableDataSource<Officer>;
 
-  //dataSource = this.officers;
-  //dataSource = ELEMENT_DATA;
-  constructor(public recordofficerservice: RecordOfficerService,public testcentreService: TestcentreService) {
-    //this.dataSource = new MatTableDataSource(this.officers);
-  }
-
-
+  constructor(public recordofficerservice: RecordOfficerService,public testcentreService: TestcentreService) {}
   ngOnInit(){
-   // this.officers = this.recordofficerservice.getOfficer();
-  //this.recordofficerservice.getOfficers()
   this.testcentreService.getTestCentres();
   this.recordofficerservice.getOfficers();
   this.officerSub = this.recordofficerservice.getOfficerUpdateListener()
   .subscribe(( officers: Officer[])=>{
     this. officers=  officers;
   })
-
   }
   onDelete(officerId: string){
     this.recordofficerservice.deleteOfficer(officerId);
   }
-
-
 }

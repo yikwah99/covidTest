@@ -18,36 +18,23 @@ export class TestcentreRegisterComponent implements OnInit {
   display = false;
   private testcentreId: string;
 
-
 constructor(public testcentreService: TestcentreService, public route: ActivatedRoute, private router: Router) { }
-
-
   ngOnInit() {
     this.route.paramMap.subscribe((paramMap: ParamMap) => {
       if (paramMap.has('testcentreId')) {
         this.mode = "edit";
         this.testcentreId = paramMap.get('testcentreId');
         this.testcentre = this.testcentreService.getTc(this.testcentreId);
-
       } else {
         this.mode = 'rCentre';
         this.testcentreId = null;
       }
     });
   }
-  // onAddCentre(){
-  //    this.enteredCentre;
-  //   this.addCentre.emit( this.enteredCentre);
-  //   console.log( this.enteredCentre);
-
-  //   this.display = !this.display;
-
-  // }
   onAddTestcentre(form: NgForm) {
     if (form.invalid) {
       return;
     }
-
     if (this.mode === 'rCentre') {
       this.testcentreService.addTestCentre(form.value.centreName);
     } else {
